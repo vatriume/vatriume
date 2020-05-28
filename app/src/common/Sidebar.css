@@ -35,6 +35,10 @@
     background-color: var(--accent);
 }
 
+.Sidebar .navbar .navbar-item:last-child {
+    border-bottom: none;
+}
+
 .Sidebar .navbar .navbar-item.theme {
     position: absolute;
     bottom: 0;
@@ -57,6 +61,3 @@
     min-width: 4em;
     min-height: 4em;
 }
-
-
-

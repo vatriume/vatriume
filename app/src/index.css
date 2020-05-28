@@ -1,20 +1,29 @@
 :root {
-  /* Colors */
   --accent: #007aff;
+}
 
-  /* Dark */
+.light {
+  --bgc: #fff;
+  --select: #f1f1f1;
+  --select-hover: #e1e1e1;
+  --text: #0f0f0f;
+  --text-extra: #1f1f1f;
+}
+
+.dark {
   --bgc: #000;
   --select: #1c1c1e;
   --select-hover: #39383d;
   --text: #f6f6f8;
   --text-extra: #5c5c5e;
+}
 
-  /* Light */
-  --light-bgc: #fff;
-  --light-select: #f1f1f1;
-  --light-select-hover: #e1e1e1;
-  --light-text: #0f0f0f;
-  --light-text-extra: #1f1f1f;
+/* Theme change transition */
+* { 
+  transition: background 1000ms ease-in, color 500ms ease-in !important;
+  -webkit-transition: background 1000ms ease-in, color 500ms ease-in !important;
+  -moz-transition: background 1000ms ease-in, color 500ms ease-in !important;
+  -o-transition: background 1000ms ease-in, color 500ms ease-in !important;
 }
 
 * {
