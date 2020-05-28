@@ -1,3 +1,41 @@
+:root {
+  /* Colors */
+  --accent: #007aff;
+
+  /* Dark */
+  --dark-bgc: #000;
+  --dark-select: #1c1c1e;
+  --dark-select-hover: #39383d;
+  --dark-text: #f6f6f8;
+  --dark-text-extra: #5c5c5e;
+
+  /* Light */
+  --light-bgc: #fff;
+  --light-select: #f1f1f1;
+  --light-select-hover: #e1e1e1;
+  --light-text: #0f0f0f;
+  --light-text-extra: #1f1f1f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  color: var(--dark-text);
+}
+
+html {
+  font-size: 14px;
+}
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.2em; }
+p { font-size: 1em; }
+small { font-size: 0.8em; }
+code { font-size: 1em; }
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
