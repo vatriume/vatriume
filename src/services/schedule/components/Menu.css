@@ -1,0 +1,12 @@
+.Menu {
+    flex: content;
+
+    min-width: 15rem;
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: scroll;
+
+    margin: 0;
+    padding: 10px;
+}

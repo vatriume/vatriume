@@ -1,0 +1,15 @@
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+
+.Schedule {
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+
+    padding: 0;
+    margin: 1rem;
+}

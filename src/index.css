@@ -12,8 +12,8 @@
 
 .dark {
   --bgc: #000;
-  --select: #1c1c1e;
-  --select-hover: #39383d;
+  --select: #0a0a0a;
+  --select-hover: #1a1a1a;
   --text: #f6f6f8;
   --text-extra: #5c5c5e;
 }
@@ -48,9 +48,10 @@ code {
   font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-h1 { font-size: 2em; font-weight: 900; }
-h2 { font-size: 1.6em; font-weight: 700; }
-h3 { font-size: 1.2em; font-weight: 600; }
+h1 { font-size: 2.5em; font-weight: 900; }
+h2 { font-size: 2em; font-weight: 900; }
+h3 { font-size: 1.7em; font-weight: 700; }
+h4 { font-size: 1.2em; font-weight: 700; }
 p { font-size: 1em; font-weight: 400; }
-small { font-size: 0.8em; font-weight: 300; }
+small { font-size: 0.8em; font-weight: 400; }
 code { font-size: 0.85em; font-weight: 400; }

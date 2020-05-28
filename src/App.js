@@ -27,8 +27,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
+                {console.log(this.state.data)}
                 <Sidebar logo={logo} />
-                <Typography />
                 <Schedule data={this.state.data} />
             </div>
         )
