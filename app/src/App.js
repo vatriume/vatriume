@@ -28,6 +28,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <Sidebar logo={logo} />
+                <Typography />
                 <Schedule data={this.state.data} />
             </div>
         )
