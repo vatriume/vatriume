@@ -2,7 +2,6 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './ThemeSwitcher.css'
 
-
 class ThemeSwitcher extends React.Component {
     constructor(props) {
         super(props)
@@ -15,12 +14,13 @@ class ThemeSwitcher extends React.Component {
     }
 
     componentDidMount() {
-        if (this.store) this.setState({ dark: this.store.getItem('ThemeSwitcher') || true })
+        if (this.store) this.setState({ dark: (this.store.getItem('ThemeSwitcher') === 'true') ? true : false })
         document.getElementsByTagName("body")[0].classList.add((this.state.dark) ? 'dark' : 'light')
     }
 
     componentDidUpdate() {
         if (this.store) this.store.setItem('ThemeSwitcher', this.state.dark)
+        document.getElementsByTagName("body")[0].classList.replace((this.state.dark) ? 'dark' : 'light', (this.state.dark) ? 'light' : 'dark')
     }
 
     toggle = () => {
