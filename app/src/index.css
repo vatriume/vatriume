@@ -19,11 +19,11 @@
 }
 
 /* Theme change transition */
-* { 
-  transition: background 1000ms ease-in, color 500ms ease-in !important;
-  -webkit-transition: background 1000ms ease-in, color 500ms ease-in !important;
-  -moz-transition: background 1000ms ease-in, color 500ms ease-in !important;
-  -o-transition: background 1000ms ease-in, color 500ms ease-in !important;
+.ex { 
+  transition: background 1000ms ease-in-out, color 500ms ease-in-out !important;
+  -webkit-transition: background 1000ms ease-in-out, color 500ms ease-in-out !important;
+  -moz-transition: background 1000ms ease-in-out, color 500ms ease-in-out !important;
+  -o-transition: background 1000ms ease-in-out, color 500ms ease-in-out !important;
 }
 
 * {

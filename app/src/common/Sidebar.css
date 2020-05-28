@@ -25,14 +25,17 @@
 
 .Sidebar .navbar .navbar-item:hover {
     background-color: var(--select-hover);
+    /* transition: background 200ms ease-in-out !important; */
 }
 
 .Sidebar .navbar .navbar-item:active {
     background-color: var(--accent);
+    /* transition: background 200ms ease-in-out !important;    */
 }
 
 .Sidebar .navbar .navbar-item.active {
     background-color: var(--accent);
+    /* transition: background 200ms ease-in-out !important; */
 }
 
 .Sidebar .navbar .navbar-item:last-child {
