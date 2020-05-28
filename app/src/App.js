@@ -3,7 +3,7 @@ import React from 'react'
 // Assets and data
 import logo from './logo.svg'
 import './App.css'
-import courses from './courses.json'
+import courses from './services/schedule/courses.json'
 
 // Components
 import Sidebar from './common/Sidebar'
