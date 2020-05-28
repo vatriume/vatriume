@@ -4,8 +4,8 @@
     width: 4em;
     height: 100%;
 
-    background-color: var(--dark-select);
-    border-right: 1px solid var(--dark-select-hover);
+    background-color: var(--select);
+    border-right: 1px solid var(--select-hover);
 }
 
 .Sidebar .navbar {
@@ -18,13 +18,13 @@
     min-width: 4em;
     min-height: 4em;
 
-    background-color: var(--dark-select);
-    border-bottom: 1px solid var(--dark-select-hover);
+    background-color: var(--select);
+    border-bottom: 1px solid var(--select-hover);
     transition: background-color 0.25s;
 }
 
 .Sidebar .navbar .navbar-item:hover {
-    background-color: var(--dark-select-hover);
+    background-color: var(--select-hover);
 }
 
 .Sidebar .navbar .navbar-item:active {
@@ -35,6 +35,11 @@
     background-color: var(--accent);
 }
 
+.Sidebar .navbar .navbar-item.theme {
+    position: absolute;
+    bottom: 0;
+}
+
 .Sidebar .navbar .navbar-item a {
     display: block;
 
@@ -43,7 +48,7 @@
 
     text-align: center;
     text-decoration: none;
-    color: var(--dark-text);
+    color: var(--text);
 }
 
 .Sidebar .navbar .navbar-item .logo {

@@ -5,8 +5,8 @@ import './App.css'
 import courses from './courses.json'
 
 import Schedule from './services/schedule/Schedule'
-import Sidebar from './Sidebar'
-import Typography from './Typography'
+import Sidebar from './common/Sidebar'
+import Typography from './common/Typography'
 
 class App extends React.Component {
     constructor() {

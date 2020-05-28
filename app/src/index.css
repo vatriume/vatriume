@@ -3,11 +3,11 @@
   --accent: #007aff;
 
   /* Dark */
-  --dark-bgc: #000;
-  --dark-select: #1c1c1e;
-  --dark-select-hover: #39383d;
-  --dark-text: #f6f6f8;
-  --dark-text-extra: #5c5c5e;
+  --bgc: #000;
+  --select: #1c1c1e;
+  --select-hover: #39383d;
+  --text: #f6f6f8;
+  --text-extra: #5c5c5e;
 
   /* Light */
   --light-bgc: #fff;
@@ -21,7 +21,7 @@
   margin: 0;
   padding: 0;
 
-  color: var(--dark-text);
+  color: var(--text);
 }
 
 html {
