@@ -18,14 +18,6 @@
   --text-extra: #5c5c5e;
 }
 
-/* Theme change transition */
-* { 
-  transition: background 400ms ease-in-out, color 200ms ease-in-out !important;
-  -webkit-transition: background 400ms ease-in-out, color 200ms ease-in-out !important;
-  -moz-transition: background 400ms ease-in-out, color 200ms ease-in-out !important;
-  -o-transition: background 400ms ease-in-out, color 200ms ease-in-out !important;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -39,19 +31,41 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
-h1 { font-size: 2.5em; font-weight: 900; }
-h2 { font-size: 2em; font-weight: 900; }
-h3 { font-size: 1.7em; font-weight: 700; }
-h4 { font-size: 1.2em; font-weight: 700; }
-p { font-size: 1em; font-weight: 400; }
-small { font-size: 0.8em; font-weight: 400; }
-code { font-size: 0.85em; font-weight: 400; }
+h1 {
+  font-size: 2.5em;
+  font-weight: 900;
+}
+h2 {
+  font-size: 2em;
+  font-weight: 900;
+}
+h3 {
+  font-size: 1.7em;
+  font-weight: 700;
+}
+h4 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+p {
+  font-size: 1em;
+  font-weight: 400;
+}
+small {
+  font-size: 0.8em;
+  font-weight: 400;
+}
+code {
+  font-size: 0.85em;
+  font-weight: 400;
+}
