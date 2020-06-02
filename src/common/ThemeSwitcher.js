@@ -16,7 +16,7 @@ class ThemeSwitcher extends React.Component {
   componentDidMount() {
     if (this.store)
       this.setState({
-        dark: this.store.getItem("ThemeSwitcher") ? true : false,
+        dark: this.store.getItem("ThemeSwitcher") === "true" ? true : false,
       });
     document
       .getElementsByTagName("body")[0]
