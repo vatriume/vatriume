@@ -6,7 +6,7 @@ import "./App.css";
 
 // Components
 import Sidebar from "./common/Sidebar";
-import Typography from "./common/Typography";
+// import Typography from "./common/Typography";
 import Schedule from "./services/schedule/Schedule";
 
 // FontAwesome icons
@@ -15,10 +15,6 @@ import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 library.add(faSun, faMoon);
 
 class App extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     return (
       <div className="App">

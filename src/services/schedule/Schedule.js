@@ -1,4 +1,4 @@
-import firebase from "firebase";
+import firebase from "firebase/app";
 import "firebase/firestore";
 
 import React from "react";
@@ -23,7 +23,14 @@ firebase.initializeApp(firebaseConfig);
 
 // Setting some variables for convenience
 const db = firebase.firestore();
-const coursesDoc = db.collection("schedule").doc("courses");
+const coursesCollection = db
+  .collection("schedule")
+  .doc("courseData")
+  .collection("courses");
+const schedulesCollection = db
+  .collection("schedule")
+  .doc("courseData")
+  .collection("schedules");
 
 // Setting that forces the WEB client to load data from server each
 // time the page loads
@@ -35,15 +42,28 @@ class Schedule extends React.Component {
 
     this.state = {
       coursesData: null,
+      schedulesData: null,
     };
   }
 
   componentDidMount() {
-    coursesDoc
+    coursesCollection
       .get(getOptions)
-      .then((doc) => {
-        if (doc.exists) this.setState({ coursesData: doc.data() });
-        else console.log("Error occured while retrieving course data");
+      .then((querySnapshot) => {
+        let allDocs = [];
+        querySnapshot.forEach((doc) => allDocs.push(doc.data()));
+        this.setState({ coursesData: allDocs });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+
+    schedulesCollection
+      .get(getOptions)
+      .then((querySnapshot) => {
+        let allDocs = [];
+        querySnapshot.forEach((doc) => allDocs.push(doc.data()));
+        this.setState({ schedulesData: allDocs });
       })
       .catch((err) => {
         console.error(err);

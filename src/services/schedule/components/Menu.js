@@ -4,10 +4,6 @@ import "./Menu.css";
 import Course from "./Course";
 
 class Menu extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const { coursesData } = this.props;
 
@@ -18,8 +14,9 @@ class Menu extends React.Component {
 
     const courseComponents = courses.map((course) => (
       <Course
-        id={course.COURSEID}
         key={course.INSTANCEID}
+        id={course.COURSEID}
+        instance={course.INSTANCEID}
         abbr={course.ABBR}
         title={course.TITLE}
         credits={course.CRECTS}
