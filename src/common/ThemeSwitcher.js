@@ -1,62 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./ThemeSwitcher.css";
 
-class ThemeSwitcher extends React.Component {
-  constructor(props) {
-    super(props);
+const ThemeSwitcher = () => {
+  const useSavedTheme = () => {
+    const [localTheme, setLocalTheme] = useState(
+      localStorage.getItem("theme") !== null
+        ? localStorage.getItem("theme")
+        : "dark"
+    );
 
-    this.state = {
-      dark: true,
+    const saveChangedTheme = (changedTheme) => {
+      localStorage.setItem("theme", changedTheme);
+      setLocalTheme(changedTheme);
     };
 
-    this.store = typeof localStorage === "undefined" ? null : localStorage;
-  }
-
-  componentDidMount() {
-    if (this.store)
-      this.setState({
-        dark: this.store.getItem("ThemeSwitcher") === "true" ? true : false,
-      });
-    document
-      .getElementsByTagName("body")[0]
-      .classList.add(this.state.dark ? "dark" : "light");
-  }
-
-  componentDidUpdate() {
-    if (this.store) this.store.setItem("ThemeSwitcher", this.state.dark);
-    document
-      .getElementsByTagName("body")[0]
-      .classList.replace(
-        this.state.dark ? "light" : "dark",
-        this.state.dark ? "dark" : "light"
-      );
-  }
-
-  toggle = () => {
-    this.setState((prev) => ({ dark: !prev.dark }));
-    document
-      .getElementsByTagName("body")[0]
-      .classList.replace(
-        this.state.dark ? "light" : "dark",
-        this.state.dark ? "dark" : "light"
-      );
+    return [localTheme, saveChangedTheme];
   };
 
-  render() {
-    return (
-      <>
-        <button className="ThemeSwitcher" onClick={this.toggle}>
-          {this.state.dark ? (
-            <FontAwesomeIcon icon="moon" />
-          ) : (
-            <FontAwesomeIcon icon="sun" />
-          )}
-        </button>
-      </>
-    );
-  }
-}
+  const [theme, setTheme] = useSavedTheme();
+  const body = document.getElementsByTagName("body")[0];
+  body.classList.add(theme === "dark" ? "dark" : "light");
+
+  useEffect(() => {
+    const body = document.getElementsByTagName("body")[0];
+
+    if (body.classList.length !== 0)
+      body.classList.replace(
+        theme === "dark" ? "light" : "dark",
+        theme === "dark" ? "dark" : "light"
+      );
+    else body.classList.add(theme === "dark" ? "dark" : "light");
+
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  return (
+    <>
+      <button
+        className="ThemeSwitcher"
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      >
+        {theme === "dark" ? (
+          <FontAwesomeIcon icon="moon" />
+        ) : (
+          <FontAwesomeIcon icon="sun" />
+        )}
+      </button>
+    </>
+  );
+};
 
 export default ThemeSwitcher;
-

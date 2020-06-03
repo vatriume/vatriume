@@ -1,8 +1,11 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Schedule.css";
+
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 
 import Menu from "./components/Menu";
 import Timetable from "./components/Timetable";
@@ -32,53 +35,54 @@ const schedulesCollection = db
   .doc("courseData")
   .collection("schedules");
 
-// Setting that forces the WEB client to load data from server each
-// time the page loads
-const getOptions = { source: "server" };
+// Schedule Component
+const Schedule = () => {
+  const [coursesData, setCoursesData] = useState([]);
+  const [schedulesData, setSchedulesData] = useState([]);
 
-class Schedule extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      coursesData: null,
-      schedulesData: null,
+  useEffect(() => {
+    const getCoursesData = async () => {
+      await coursesCollection
+        .get()
+        .then((querySnapshot) => {
+          let allDocs = [];
+          querySnapshot.forEach((doc) => allDocs.push(doc.data()));
+          setCoursesData(allDocs);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     };
-  }
 
-  componentDidMount() {
-    coursesCollection
-      .get(getOptions)
-      .then((querySnapshot) => {
-        let allDocs = [];
-        querySnapshot.forEach((doc) => allDocs.push(doc.data()));
-        this.setState({ coursesData: allDocs });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    const getSchedulesData = async () => {
+      await schedulesCollection
+        .get()
+        .then((querySnapshot) => {
+          let allDocs = [];
+          querySnapshot.forEach((doc) => allDocs.push(doc.data()));
+          setSchedulesData(allDocs);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    };
 
-    schedulesCollection
-      .get(getOptions)
-      .then((querySnapshot) => {
-        let allDocs = [];
-        querySnapshot.forEach((doc) => allDocs.push(doc.data()));
-        this.setState({ schedulesData: allDocs });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
+    getCoursesData();
+    getSchedulesData();
+  }, []);
 
-  render() {
-    return (
+  return (
+    <DndProvider backend={HTML5Backend}>
       <div className="Schedule">
-        <Menu coursesData={this.state.coursesData} />
-        <Timetable coursesData={this.state.coursesData} />
-        <Info coursesData={this.state.coursesData} />
+        <Menu coursesData={coursesData} />
+        <Timetable coursesData={coursesData} schedulesData={schedulesData} />
+        <Info coursesData={coursesData} schedulesData={schedulesData} />
       </div>
-    );
-  }
-}
+    </DndProvider>
+  );
+};
 
 export default Schedule;
+export const ItemTypes = {
+  SECTION: "section",
+};

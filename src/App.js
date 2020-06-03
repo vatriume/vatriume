@@ -14,15 +14,13 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 library.add(faSun, faMoon);
 
-class App extends React.Component {
-  render() {
-    return (
-      <div className="App">
-        <Sidebar logo={logo} />
-        <Schedule />
-      </div>
-    );
-  }
-}
+const App = () => {
+  return (
+    <div className="App">
+      <Sidebar logo={logo} />
+      <Schedule />
+    </div>
+  );
+};
 
 export default App;
