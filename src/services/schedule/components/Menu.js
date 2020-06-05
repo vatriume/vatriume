@@ -1,15 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import "./Menu.css";
 
 import Course from "./Course";
 
-const Menu = (props) => {
-  const { coursesData } = props;
+const Menu = () => {
+  const coursesData = useSelector((state) => state.services.schedule.courses);
 
   let courses = [];
-  for (const instance in coursesData) {
-    courses.push(coursesData[instance]);
-  }
+  coursesData.allIds.forEach((INSTANCEID) => {
+    courses.push(coursesData.byId[INSTANCEID]);
+  });
 
   const courseComponents = courses.map((course) => (
     <Course
