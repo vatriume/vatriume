@@ -16,8 +16,8 @@ const Selector = () => {
   });
 
   let chosenCoursesFromState = [];
-  chosenCoursesData.forEach((INSTANCEID) => {
-    chosenCoursesFromState.push(coursesData.byId[INSTANCEID]);
+  chosenCoursesData.forEach((course) => {
+    chosenCoursesFromState.push(course);
   });
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,18 +30,7 @@ const Selector = () => {
         course.ABBR.toLowerCase().includes(searchQuery.toLowerCase())
       )
     );
-  }, [searchQuery, courses]);
-
-  const chosenCourseComponents = chosenCourses.map((course) => (
-    <div key={course.INSTANCEID} className="Course">
-      <h4>{course.ABBR}</h4>
-      <p>{course.CRECTS} ECTS Credits</p>
-      <small>{course.SCHOOL}</small>
-      <button>
-        <FontAwesomeIcon icon="times" />
-      </button>
-    </div>
-  ));
+  }, [searchQuery]);
 
   const foundCourseComponents = foundCourses.map((course) => (
     <div key={course.INSTANCEID} className="Course">
@@ -51,14 +40,34 @@ const Selector = () => {
       <button
         id={course.INSTANCEID}
         onClick={(e) => {
-          console.log("Button pressed");
-          console.log("Button id:", e.target.id);
-          console.log("Chosen courses:", chosenCourses);
-          chosenCourses.push(coursesData.byId[e.target.id]);
-          console.log("Chosen courses:", chosenCourses);
+          const chosen = coursesData.byId[e.currentTarget.id];
+          setChosenCourses([...chosenCourses, chosen]);
+          setFoundCourses((prev) =>
+            prev.filter((course) => course.INSTANCEID !== chosen.INSTANCEID)
+          );
         }}
       >
         <FontAwesomeIcon icon="plus" />
+      </button>
+    </div>
+  ));
+
+  const chosenCourseComponents = chosenCourses.map((course) => (
+    <div key={course.INSTANCEID} className="Course">
+      <h4>{course.ABBR}</h4>
+      <p>{course.CRECTS} ECTS Credits</p>
+      <small>{course.SCHOOL}</small>
+      <button
+        id={course.INSTANCEID}
+        onClick={(e) => {
+          const chosen = coursesData.byId[e.currentTarget.id];
+          setChosenCourses((prev) =>
+            prev.filter((course) => course !== chosen)
+          );
+          setFoundCourses([chosen, ...foundCourses]);
+        }}
+      >
+        <FontAwesomeIcon icon="times" />
       </button>
     </div>
   ));

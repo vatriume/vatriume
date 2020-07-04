@@ -49,9 +49,7 @@ const Schedule = () => {
     <div className="Schedule">
       {
         //chosenCourses.length !== 0 ? (
-        <DndProvider backend={HTML5Backend}>
-          <Selector />
-        </DndProvider>
+        <Selector />
         //) : (
         // {/* <DndProvider backend={HTML5Backend}> */}
         // {/* <Menu /> */}
