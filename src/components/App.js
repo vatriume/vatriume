@@ -1,7 +1,7 @@
 import React from "react";
 
 // Assets and data
-import logo from "./logo.svg";
+import logo from "../logo.svg";
 import "./App.css";
 
 // Components
@@ -11,8 +11,13 @@ import Schedule from "./services/schedule/Schedule";
 
 // FontAwesome icons
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
-library.add(faSun, faMoon);
+import {
+  faSun,
+  faMoon,
+  faTimes,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faSun, faMoon, faTimes, faPlus);
 
 const App = () => {
   return (

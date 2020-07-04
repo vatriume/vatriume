@@ -1,0 +1,28 @@
+.Selector .Course {
+  color: white !important;
+  position: relative;
+}
+
+.Selector .Course button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  margin-right: 2px;
+
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+
+  border: none;
+  outline: none;
+}
+
+.Selector .Course button:hover {
+  cursor: pointer;
+}
+
+.Selector .Course button:active {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}

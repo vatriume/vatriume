@@ -12,6 +12,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.14.6",
+    "lodash": "^4.17.15",
     "rainbowvis.js": "^1.0.1",
     "react": "^16.13.1",
     "react-dnd": "^11.1.3",

@@ -1,7 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 
-import * as actions from "../database";
+import * as actions from "../common/database";
 
 // Initializing the app with config so that the app could access data
 const firebaseConfig = {

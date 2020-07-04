@@ -1,0 +1,18 @@
+.Course {
+  flex: content;
+  min-width: 200px;
+
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+
+  border-radius: 0.5rem;
+  background-color: var(--accent);
+}
+
+.Course h4,
+p,
+small {
+  color: #fff !important;
+}
+
