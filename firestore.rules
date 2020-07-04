@@ -1,16 +1,16 @@
 rules_version = '2';
 
-// Schedule Service Rules
-// Written on 04.07.20
-
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /services/schedule/courses/{document=**} {
-      allow read, write: if true;
-    }
-
-    match /services/schedule/schedules/{document=**} {
-      allow read, write: if true;
-    }
+    // Schedule Service Rules
+    match /services/schedule {
+      match /courses/{document=**} {
+        allow read, write: if true;
+      }
+      
+      match /schedules/{document=**} {
+        allow read, write: if true;
+      }
+    } 
   }
 }
