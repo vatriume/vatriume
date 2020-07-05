@@ -26,11 +26,13 @@ const Selector = () => {
 
   useEffect(() => {
     setFoundCourses(
-      courses.filter((course) =>
-        course.ABBR.toLowerCase().includes(searchQuery.toLowerCase())
-      )
+      courses
+        .filter((course) =>
+          course.ABBR.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+        .filter((course) => !chosenCourses.includes(course))
     );
-  }, [searchQuery]);
+  }, [searchQuery, chosenCourses]);
 
   const foundCourseComponents = foundCourses.map((course) => (
     <div key={course.INSTANCEID} className="Course">
