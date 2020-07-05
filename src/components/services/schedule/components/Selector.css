@@ -1,3 +1,50 @@
+.Selector {
+  display: flex;
+  flex-direction: row;
+}
+
+.Selector .chosen {
+  min-width: 16rem;
+
+  overflow-y: scroll;
+}
+
+.Selector .search {
+  margin-left: 4rem;
+
+  overflow-y: scroll;
+}
+
+.Selector .search input {
+  position: fixed;
+  z-index: 999;
+
+  width: 15rem;
+  height: 3rem;
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+
+  color: var(--text);
+  background-color: var(--bgc);
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: 3px solid var(--text);
+  transition: 0.3s ease-in border;
+}
+
+.Selector .search input:focus {
+  outline: none;
+  border-bottom: 3px solid var(--accent);
+}
+
+.Selector .search .available-courses {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 0.1rem;
+  margin-top: 4rem;
+}
+
 .Selector .Course {
   color: white !important;
   position: relative;

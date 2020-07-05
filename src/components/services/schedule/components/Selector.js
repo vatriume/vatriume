@@ -80,11 +80,12 @@ const Selector = () => {
       <div className="search">
         <input
           type="text"
+          placeholder="Search..."
           name="available-courses"
           id="available-courses"
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        {foundCourseComponents}
+        <div className="available-courses">{foundCourseComponents}</div>
       </div>
     </div>
   );
