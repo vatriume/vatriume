@@ -16,6 +16,7 @@ import App from "./components/App";
 // Root styles
 import "./index.css";
 
+// Storing the local state to localStorage
 store.subscribe(
   throttle(() => {
     saveState(store.getState());
