@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Sidebar.css";
 import ThemeSwitcher from "./ThemeSwitcher";
+import SignIn from "./SignIn";
 
 const Sidebar = (props) => {
   return (
@@ -34,6 +35,9 @@ const Sidebar = (props) => {
         </li>
         <li className="navbar-item">
           <a href="/">VA</a>
+        </li>
+        <li className="navbar-item sign-in">
+          <SignIn />
         </li>
         <li className="navbar-item theme">
           <ThemeSwitcher />

@@ -3,6 +3,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+
+import { createFirestoreInstance } from "redux-firestore";
+
+// Firebase app
+import firebase from "./firebase";
+
 // Redux store
 import store from "./store/configureStore";
 
@@ -23,9 +30,24 @@ store.subscribe(
   }, 1000)
 );
 
+// Binding Firebase to React and Redux
+const rrfConfig = {
+  userProfile: "users",
+  useFirestoreForProfile: true,
+};
+
+const rrfProps = {
+  firebase,
+  config: rrfConfig,
+  dispatch: store.dispatch,
+  createFirestoreInstance,
+};
+
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ReactReduxFirebaseProvider {...rrfProps}>
+      <App />
+    </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById("root")
 );
