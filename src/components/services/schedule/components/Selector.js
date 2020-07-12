@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Selector.css";
+import "./Course.css";
 
 const Selector = () => {
   const coursesData = useSelector((state) => state.services.schedule.courses);

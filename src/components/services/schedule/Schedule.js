@@ -1,8 +1,5 @@
 // React and React Libraries
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 // Actions
 import {
@@ -11,21 +8,20 @@ import {
 } from "../../../store/services/schedule";
 import { databaseFetch } from "../../../store/common/database.js";
 
+import store from "../../../store/configureStore";
+
 // React Components
 import Selector from "./components/Selector";
-import Menu from "./components/Menu";
-import Timetable from "./components/Timetable";
-import Info from "./components/Info";
+// import Menu from "./components/Menu";
+// import Timetable from "./components/Timetable";
+// import Info from "./components/Info";
 
 // Schedule Component styles
 import "./Schedule.css";
 
 // Schedule Component
 const Schedule = () => {
-  const dispatch = useDispatch();
-  const chosenCourses = useSelector(
-    (state) => state.services.schedule.user.chosenCourses
-  );
+  const dispatch = store.dispatch;
 
   useEffect(() => {
     dispatch(
