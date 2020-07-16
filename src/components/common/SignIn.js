@@ -14,7 +14,7 @@ const SignIn = () => {
     firebase
       .login({
         provider: "google",
-        type: "redirect",
+        type: "popup",
       })
       .then(() => {
         if (!auth.isEmpty) firebase.updateProfile({ role: "admin" });
