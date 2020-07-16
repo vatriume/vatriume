@@ -8,7 +8,7 @@ import "./SignIn.css";
 
 const SignIn = () => {
   const firebase = useFirebase();
-  const authorized = !useSelector((state) => state.firebase.auth.isEmpty);
+  const auth = useSelector((state) => state.firebase.auth);
 
   const signInWithGoogle = () => {
     firebase
@@ -17,7 +17,7 @@ const SignIn = () => {
         type: "redirect",
       })
       .then(() => {
-        console.log("successful");
+        if (!auth.isEmpty) firebase.updateProfile({ role: "admin" });
       });
   };
 
@@ -28,14 +28,18 @@ const SignIn = () => {
         onClick={(e) => {
           e.preventDefault();
 
-          if (authorized) {
+          if (auth.isLoaded && auth.isEmpty) {
             signInWithGoogle();
           } else {
             firebase.logout();
           }
         }}
       >
-        <FontAwesomeIcon icon="plus" />
+        {auth.isEmpty ? (
+          <FontAwesomeIcon icon="plus" />
+        ) : (
+          <img src={auth.photoURL} alt="avatar" />
+        )}
       </button>
     </>
   );

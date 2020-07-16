@@ -12,6 +12,15 @@ button.SignIn {
   outline: none;
 }
 
+button.SignIn img {
+  margin-top: 5px;
+
+  width: 2rem;
+  height: auto;
+
+  border-radius: 1rem;
+}
+
 button.SignIn:active {
   outline: none;
   border: none;
