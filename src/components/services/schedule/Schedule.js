@@ -1,5 +1,6 @@
 // React and React Libraries
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 // Actions
 import {
@@ -7,8 +8,6 @@ import {
   schedulesFetched,
 } from "../../../store/services/schedule";
 import { databaseFetch } from "../../../store/common/database.js";
-
-import store from "../../../store/configureStore";
 
 // React Components
 import Selector from "./components/Selector";
@@ -21,7 +20,7 @@ import "./Schedule.css";
 
 // Schedule Component
 const Schedule = () => {
-  const dispatch = store.dispatch;
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(
