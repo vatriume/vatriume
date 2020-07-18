@@ -17,7 +17,14 @@ const SignIn = () => {
         type: "popup",
       })
       .then(() => {
-        if (!auth.isEmpty) firebase.updateProfile({ role: "admin" });
+        if (!auth.isEmpty)
+          firebase.updateProfile({
+            schedule: {
+              courses: [],
+              count: 0,
+              sections: [],
+            },
+          });
       });
   };
 
