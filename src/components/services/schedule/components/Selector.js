@@ -10,6 +10,9 @@ const Selector = () => {
   const firebase = useFirebase();
 
   const coursesData = useSelector((state) => state.services.schedule.courses);
+  const schedulesData = useSelector(
+    (state) => state.services.schedule.schedules
+  );
   const userData = useSelector((state) => state.firebase.profile.schedule);
   let chosenCoursesData = [];
   let chosenCoursesECTSData = 0;
@@ -20,6 +23,7 @@ const Selector = () => {
   }
 
   let courses = coursesData.allIds;
+  let schedules = schedulesData.allIds;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [foundCourses, setFoundCourses] = useState(courses);
@@ -56,6 +60,7 @@ const Selector = () => {
 
   const foundCourseComponents = foundCourses.map((c) => {
     const course = coursesData.byId[c];
+    const sections = schedulesData.byId[c];
     return (
       <div key={course.INSTANCEID} className="Course">
         <h4>{course.ABBR}</h4>

@@ -5,11 +5,11 @@ import "./Menu.css";
 
 import Course from "./Course";
 
-const Menu = () => {
+const Menu = (props) => {
   const coursesData = useSelector((state) => state.services.schedule.courses);
 
   let courses = [];
-  coursesData.allIds.forEach((INSTANCEID) => {
+  props.chosenCourses.forEach((INSTANCEID) => {
     courses.push(coursesData.byId[INSTANCEID]);
   });
 

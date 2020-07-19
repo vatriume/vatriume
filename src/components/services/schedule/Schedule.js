@@ -1,6 +1,6 @@
 // React and React Libraries
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Actions
 import {
@@ -11,9 +11,9 @@ import { databaseFetch } from "../../../store/common/database.js";
 
 // React Components
 import Selector from "./components/Selector";
-// import Menu from "./components/Menu";
-// import Timetable from "./components/Timetable";
-// import Info from "./components/Info";
+import Menu from "./components/Menu";
+import Timetable from "./components/Timetable";
+import Info from "./components/Info";
 
 // Schedule Component styles
 import "./Schedule.css";
@@ -21,6 +21,14 @@ import "./Schedule.css";
 // Schedule Component
 const Schedule = () => {
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.firebase.profile.schedule);
+  let chosenCoursesData = [];
+  let chosenCoursesECTSData = 0;
+
+  if (userData) {
+    chosenCoursesData = userData.courses;
+    chosenCoursesECTSData = userData.count;
+  }
 
   useEffect(() => {
     dispatch(
@@ -38,20 +46,19 @@ const Schedule = () => {
         onFailure: "console.error",
       })
     );
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="Schedule">
-      {
-        //chosenCourses.length !== 0 ? (
+      {chosenCoursesData.length !== 0 ? (
+        <>
+          <Menu chosenCourses={chosenCoursesData} />
+          <Timetable />
+          <Info />
+        </>
+      ) : (
         <Selector />
-        //) : (
-        // {/* <DndProvider backend={HTML5Backend}> */}
-        // {/* <Menu /> */}
-        // {/* <Timetable /> */}
-        // {/* <Info /> */}
-        // </DndProvider>
-      }
+      )}
     </div>
   );
 };

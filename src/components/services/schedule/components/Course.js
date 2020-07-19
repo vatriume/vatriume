@@ -1,30 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "./Course.css";
 
-import { ItemTypes } from "../Schedule";
-import { useDrag } from "react-dnd";
+import Section from "./Section";
 
 const Course = (props) => {
-  const [{ isDragging }, drag] = useDrag({
-    item: { type: ItemTypes.SECTION },
-    collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
-    }),
-  });
+  const schedules = useSelector((state) => state.services.schedule.schedules);
+
+  const sections = schedules.byId[props.instance];
+
+  const sectionComponents = Object.keys(sections["SECTIONS"]).map((section) => (
+    <Section key={section} id={section} sections={sections[section]} />
+  ));
+
+  const [displaying, toggleDisplayStatus] = useState(false);
 
   return (
-    <div
-      className="Course"
-      id={props.INSTANCEID}
-      ref={drag}
-      style={{
-        opacity: isDragging ? 0.5 : 1.0,
-      }}
-    >
-      <h4>{props.abbr}</h4>
-      <p>{props.credits} ECTS Credits</p>
-      <small>{props.school}</small>
-    </div>
+    <>
+      <div className="Course" id={props.instance}>
+        <h4>{props.abbr}</h4>
+        <p>{props.credits} ECTS Credits</p>
+        <small>{props.school}</small>
+        <button
+          id={props.instance}
+          onClick={(e) => {
+            e.preventDefault();
+            toggleDisplayStatus((prev) => !prev);
+          }}
+        >
+          <FontAwesomeIcon icon="caret-down" />
+        </button>
+      </div>
+
+      <div className="Sections" id={props.instance + "-sections"}>
+        {displaying && sectionComponents}
+      </div>
+    </>
   );
 };
 

@@ -43,9 +43,9 @@ const ThemeSwitcher = () => {
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
       >
         {theme === "dark" ? (
-          <FontAwesomeIcon icon="moon" />
+          <FontAwesomeIcon color="#fff" icon="moon" />
         ) : (
-          <FontAwesomeIcon icon="sun" />
+          <FontAwesomeIcon color="#000" icon="sun" />
         )}
       </button>
     </>

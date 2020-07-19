@@ -1,6 +1,7 @@
 .Course {
+  position: relative;
   flex: content;
-  min-width: 200px;
+  min-width: 220px;
 
   margin: 0;
   margin-bottom: 1rem;
@@ -8,11 +9,36 @@
 
   border-radius: 0.5rem;
   background-color: var(--accent);
+  color: #fff !important;
 }
 
 .Course h4,
 p,
-small {
+small,
+button {
   color: #fff !important;
 }
 
+.Course button {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+
+  margin-right: 2px;
+
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+
+  border: none;
+  outline: none;
+}
+
+.Course button:hover {
+  cursor: pointer;
+}
+
+.Course button:active {
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
