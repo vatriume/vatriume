@@ -16,8 +16,9 @@ import {
   faMoon,
   faTimes,
   faPlus,
+  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faSun, faMoon, faTimes, faPlus);
+library.add(faSun, faMoon, faTimes, faPlus, faCaretDown);
 
 const App = () => {
   return (
