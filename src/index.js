@@ -3,6 +3,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+
 import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
 import { createFirestoreInstance } from "redux-firestore";
@@ -44,10 +47,12 @@ const rrfProps = {
 };
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ReactReduxFirebaseProvider {...rrfProps}>
-      <App />
-    </ReactReduxFirebaseProvider>
-  </Provider>,
+  <DndProvider backend={HTML5Backend}>
+    <Provider store={store}>
+      <ReactReduxFirebaseProvider {...rrfProps}>
+        <App />
+      </ReactReduxFirebaseProvider>
+    </Provider>
+  </DndProvider>,
   document.getElementById("root")
 );
