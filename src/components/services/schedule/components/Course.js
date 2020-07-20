@@ -13,7 +13,11 @@ const Course = (props) => {
   const sections = schedules.byId[props.instance];
 
   const sectionComponents = Object.keys(sections["SECTIONS"]).map((section) => (
-    <Section key={section} id={section} sections={sections[section]} />
+    <Section
+      key={section}
+      id={section}
+      sections={sections["SECTIONS"][section]}
+    />
   ));
 
   const [displaying, toggleDisplayStatus] = useState(false);

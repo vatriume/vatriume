@@ -6,7 +6,10 @@ import { useDrag } from "react-dnd";
 
 const Section = (props) => {
   const [{ isDragging }, drag] = useDrag({
-    item: { type: ItemTypes.SECTION },
+    item: {
+      type: ItemTypes.SECTION,
+      sections: props.sections,
+    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
