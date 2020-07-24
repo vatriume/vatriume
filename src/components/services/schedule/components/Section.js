@@ -11,7 +11,7 @@ const Section = (props) => {
       sections: props.sections,
     },
     collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
+      isDragging: monitor.isDragging(),
     }),
   });
 

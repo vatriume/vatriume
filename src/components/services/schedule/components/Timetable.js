@@ -1,12 +1,14 @@
 import React from "react";
 import "./Timetable.css";
 
-import { useDrop, useDragLayer } from "react-dnd";
+import { useDrop } from "react-dnd";
 import { ItemTypes } from "../Schedule";
+
+import SectionTime from "./SectionTime";
 
 const Timetable = () => {
   // Connecting React DnD
-  const [collectedProps, drop] = useDrop({
+  const [{ sectionDragged, isOver }] = useDrop({
     accept: ItemTypes.SECTION,
     collect: (monitor) => ({
       sectionDragged: monitor.getItem(),
@@ -14,9 +16,15 @@ const Timetable = () => {
   });
 
   // Basic markup
+  let dayNames = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   let timestamps = [];
-  let D = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let d = ["M", "T", "W", "R", "F", "S"];
   let days = [];
 
   for (let i = 9; i <= 20; i++) {
@@ -27,9 +35,9 @@ const Timetable = () => {
     );
   }
 
-  for (const day of D) {
+  for (const day of dayNames) {
     days.push(
-      <div key={day.toLowerCase()} id={day.toLowerCase()}>
+      <div key={day} id={day}>
         <h3>{day}</h3>
       </div>
     );
@@ -40,31 +48,7 @@ const Timetable = () => {
     let possibleTimes = [];
 
     for (const section of sections) {
-      const days = section.DAYS.replace(/ /g, "").split("");
-
-      for (const day of days) {
-        console.log(day, d.indexOf(day) * 100 + "px");
-        possibleTimes.push(
-          <div
-            key={section.INSTANCEID + "-" + section.ST}
-            id={section.INSTANCEID + "-" + section.ST}
-            style={{
-              position: "absolute",
-              top: section.TIMES[0] - 540 + "px",
-              left: "calc(100% / 6 * " + d.indexOf(day) + ")",
-              width: "calc(100% / 6)",
-              height:
-                "calc(100% / 12 * " +
-                (section.TIMES[1] - section.TIMES[0]) / 60 +
-                ")",
-              backgroundColor: "var(--accent)",
-              borderRadius: "0.5rem",
-            }}
-          >
-            {section.TIMES + " " + section.DAYS}
-          </div>
-        );
-      }
+      possibleTimes.push(<SectionTime section={section}></SectionTime>);
     }
 
     return possibleTimes;
@@ -75,9 +59,8 @@ const Timetable = () => {
       <div className="timestamps">{timestamps}</div>
       <div className="table">
         <div className="days">{days}</div>
-        <div ref={drop} className="fields">
-          {collectedProps.sectionDragged &&
-            renderPossible(collectedProps.sectionDragged.sections)}
+        <div className="fields">
+          {sectionDragged && renderPossible(sectionDragged.sections)}
         </div>
       </div>
     </div>

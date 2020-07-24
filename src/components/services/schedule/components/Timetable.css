@@ -14,6 +14,12 @@
   color: var(--text);
 }
 
+.Timetable .table {
+  flex: auto;
+  height: 100%;
+  width: 100%;
+}
+
 .Timetable .days {
   flex: auto;
   display: flex;
@@ -45,12 +51,6 @@
   flex: 0 0 calc(100% / 6);
 
   text-align: center;
-}
-
-.Timetable .table {
-  flex: auto;
-  height: 100%;
-  width: 100%;
 }
 
 .Timetable .fields {
