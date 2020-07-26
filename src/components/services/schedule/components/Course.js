@@ -26,8 +26,8 @@ const Course = (props) => {
     <>
       <div className="Course" id={props.instance}>
         <h4>{props.abbr}</h4>
-        <p>{props.credits} ECTS Credits</p>
-        <small>{props.school}</small>
+        <p>{props.title}</p>
+        <small>{props.credits} ECTS Credits</small>
         <button
           id={props.instance}
           onClick={(e) => {

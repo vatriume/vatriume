@@ -8,6 +8,7 @@ const Section = (props) => {
   const [{ isDragging }, drag] = useDrag({
     item: {
       type: ItemTypes.SECTION,
+      sectionType: props.id,
       sections: props.sections,
     },
     collect: (monitor) => ({
@@ -41,7 +42,7 @@ const Section = (props) => {
         opacity: isDragging ? 0.5 : 1.0,
       }}
     >
-      <h5>{dictionary[props.id]}</h5>
+      <p>{dictionary[props.id]}</p>
     </div>
   );
 };
