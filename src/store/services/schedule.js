@@ -11,11 +11,6 @@ const schedule = createSlice({
       byId: {},
       allIds: [],
     },
-    user: {
-      id: "",
-      chosenCourses: [],
-      chosenSections: [],
-    },
   },
   reducers: {
     coursesFetched: (state, action) => {
@@ -25,9 +20,6 @@ const schedule = createSlice({
     schedulesFetched: (state, action) => {
       state.schedules.byId = action.payload;
       state.schedules.allIds = Object.keys(action.payload);
-    },
-    coursesChosen: (state, action) => {
-      state.user.chosenCourses = action.payload;
     },
   },
 });

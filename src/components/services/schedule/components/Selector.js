@@ -64,8 +64,8 @@ const Selector = () => {
     return (
       <div key={course.INSTANCEID} className="Course">
         <h4>{course.ABBR}</h4>
-        <p>{course.CRECTS} ECTS Credits</p>
-        <small>{course.SCHOOL}</small>
+        <p>{course.TITLE}</p>
+        <small>{course.CRECTS} ECTS Credits</small>
         <button
           id={course.INSTANCEID}
           onClick={(e) => chooseCourse(e.currentTarget.id)}
@@ -81,8 +81,8 @@ const Selector = () => {
     return (
       <div key={course.INSTANCEID} className="Course">
         <h4>{course.ABBR}</h4>
-        <p>{course.CRECTS} ECTS Credits</p>
-        <small>{course.SCHOOL}</small>
+        <p>{course.TITLE}</p>
+        <small>{course.CRECTS} ECTS Credits</small>
         <button
           id={course.INSTANCEID}
           onClick={(e) => removeCourse(e.currentTarget.id)}

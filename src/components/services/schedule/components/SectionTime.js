@@ -1,25 +1,49 @@
 import React from "react";
 import { useDrop } from "react-dnd";
+import { useSelector } from "react-redux";
+import { useFirebase } from "react-redux-firebase";
 
 import { ItemTypes } from "../Schedule";
 
+import "./SectionTime.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const SectionTime = (props) => {
+  // Connecting Firebase user profile
+  const firebase = useFirebase();
+
   // Connecting React DnD
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.SECTION,
+    drop: (item) => {
+      const instanceid = item.sections[0]["INSTANCEID"];
+      const sectionType = item.sectionType;
+
+      firebase.updateProfile({
+        schedule: {
+          sections: {
+            [instanceid]: { [sectionType]: section },
+          },
+        },
+      });
+    },
     collect: (monitor) => ({
       isOver: monitor.isOver(),
     }),
   });
 
+  const course = props.course;
   const section = props.section;
+  const sectionType = section.ST.replace(/[0-9]/g, "");
+  const userProfile = useSelector((state) => state.firebase.profile);
+  const chosen = props.display === "chosen";
   const id = section.INSTANCEID + "-" + section.ST;
   const d = ["M", "T", "W", "R", "F", "S"];
   const days = section.DAYS.replace(/ /g, "").split("");
   let sectionTime = [];
 
   for (const day of days) {
-    const id = section.INSTANCEID + "-" + section.ST + "-" + day;
+    const ID = section.INSTANCEID + "-" + section.ST + "-" + day;
     const style = {
       position: "absolute",
       top:
@@ -30,13 +54,48 @@ const SectionTime = (props) => {
         "calc(100% / 12 * " +
         (section["FORMATTED TIMES"][1] - section["FORMATTED TIMES"][0]) / 60 +
         ")",
-      backgroundColor: isOver ? "var(--text)" : "var(--select-hover)",
-      borderRadius: "0.5rem",
+      backgroundColor: chosen
+        ? "var(--accent)"
+        : isOver
+        ? "var(--accent)"
+        : "var(--select-hover)",
     };
 
     sectionTime.push(
-      <div key={id} id={id} style={style}>
+      <div key={ID} id={ID} style={style}>
+        <h5>{course + " " + section["ST"]}</h5>
         <p>{section["TIMES"]}</p>
+        <button
+          id={ID}
+          onClick={(e) => {
+            e.preventDefault();
+
+            const sectionType = section.ST.replace(/[0-9]/g, "");
+
+            const {
+              [sectionType]: old,
+              ...newChosenSections
+            } = userProfile.schedule.sections[section["INSTANCEID"]];
+
+            firebase.updateProfile({
+              schedule: {
+                sections: {
+                  [section["INSTANCEID"]]: {},
+                },
+              },
+            });
+
+            firebase.updateProfile({
+              schedule: {
+                sections: {
+                  [section["INSTANCEID"]]: { ...newChosenSections },
+                },
+              },
+            });
+          }}
+        >
+          <FontAwesomeIcon icon="times" />
+        </button>
       </div>
     );
   }
