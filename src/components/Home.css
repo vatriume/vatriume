@@ -1,0 +1,30 @@
+.Home {
+  width: 100%;
+  background: var(--bgi);
+
+  padding: 1rem;
+  color: var(--text);
+}
+
+.Home .splash h1 {
+  position: absolute;
+
+  top: 50%;
+  transform: translate(0, calc(-50% - 1rem));
+
+  font-size: 6rem;
+}
+
+.Home code {
+  position: absolute;
+
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.Home .k-logo {
+  z-index: 99;
+
+  font-family: "Phelix Boomgartner";
+  font-size: 1.5em;
+}

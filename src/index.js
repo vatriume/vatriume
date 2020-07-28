@@ -10,6 +10,8 @@ import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
 import { createFirestoreInstance } from "redux-firestore";
 
+import { BrowserRouter as Router, BrowserRouter } from "react-router-dom";
+
 // Firebase app
 import firebase from "./firebase";
 
@@ -50,7 +52,9 @@ ReactDOM.render(
   <DndProvider backend={HTML5Backend}>
     <Provider store={store}>
       <ReactReduxFirebaseProvider {...rrfProps}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ReactReduxFirebaseProvider>
     </Provider>
   </DndProvider>,

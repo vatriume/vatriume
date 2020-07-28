@@ -1,4 +1,7 @@
 .Typography {
-    padding: 0;
-    margin: 0;
+  padding: 1em;
+  margin: 1em;
+
+  color: var(--text);
 }
+

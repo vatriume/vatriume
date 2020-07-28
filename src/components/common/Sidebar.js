@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import "./Sidebar.css";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -8,33 +9,15 @@ const Sidebar = (props) => {
   return (
     <div className="Sidebar">
       <ul className="navbar">
-        <li className="navbar-item active">
-          <a href="/">
-            <img className="logo" src={props.logo} alt="VA" />
-          </a>
+        <li className="navbar-item">
+          <NavLink exact to="/" activeClassName="active">
+            <img className="logo" src={props.logo} alt="Home" />
+          </NavLink>
         </li>
         <li className="navbar-item">
-          <a href="/">
-            <img className="logo" src={props.logo} alt="VA" />
-          </a>
-        </li>
-        <li className="navbar-item">
-          <a href="/">
-            <img className="logo" src={props.logo} alt="VA" />
-          </a>
-        </li>
-        <li className="navbar-item">
-          <a href="/">
-            <img className="logo" src={props.logo} alt="VA" />
-          </a>
-        </li>
-        <li className="navbar-item">
-          <a href="/schedule">
-            <img className="logo" src={props.logo} alt="VA" />
-          </a>
-        </li>
-        <li className="navbar-item">
-          <a href="/">VA</a>
+          <NavLink to="/schedule" activeClassName="active">
+            <img className="logo" src={props.logo} alt="Schedule" />
+          </NavLink>
         </li>
         <li className="navbar-item sign-in">
           <SignIn />
@@ -48,4 +31,3 @@ const Sidebar = (props) => {
 };
 
 export default Sidebar;
-

@@ -14,9 +14,9 @@
 }
 
 .Course h4,
-p,
-small,
-button {
+.Course p,
+.Course small,
+.Course button {
   color: #fff !important;
 }
 
