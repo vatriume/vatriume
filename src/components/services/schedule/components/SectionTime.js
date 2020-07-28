@@ -8,13 +8,24 @@ import { ItemTypes } from "../Schedule";
 import "./SectionTime.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SectionTime = (props) => {
+const SectionTime = ({ course, section, display }) => {
   // Connecting Firebase user profile
   const firebase = useFirebase();
 
   // Connecting React DnD
   const [{ isOver }, drop] = useDrop({
     accept: ItemTypes.SECTION,
+    canDrop: (item) => {
+      const courseId = section["INSTANCEID"];
+      const sectionType = section.ST.replace(/[0-9]/g, "");
+
+      const itemCourseId = item.sections[0]["INSTANCEID"];
+      const itemSectionType = item.sections[0].ST.replace(/[0-9]/g, "");
+
+      if (itemCourseId === courseId && itemSectionType === sectionType)
+        return true;
+      else return false;
+    },
     drop: (item) => {
       const instanceid = item.sections[0]["INSTANCEID"];
       const sectionType = item.sectionType;
@@ -32,14 +43,12 @@ const SectionTime = (props) => {
     }),
   });
 
-  const course = props.course;
-  const section = props.section;
-  const sectionType = section.ST.replace(/[0-9]/g, "");
   const userProfile = useSelector((state) => state.firebase.profile);
-  const chosen = props.display === "chosen";
+  const chosen = display === "chosen";
   const id = section.INSTANCEID + "-" + section.ST;
   const d = ["M", "T", "W", "R", "F", "S"];
   const days = section.DAYS.replace(/ /g, "").split("");
+
   let sectionTime = [];
 
   for (const day of days) {
