@@ -1,5 +1,9 @@
 :root {
   --accent: #007aff;
+  /* --accent: #ff6978; */
+  --success: #4daa57;
+  --error: #d9594c;
+  --gold: #ffd700;
 }
 
 .light {
@@ -8,7 +12,7 @@
   --select: #f1f1f1;
   --select-hover: #e1e1e1;
   --text: #0f0f0f;
-  --text-extra: #1f1f1f;
+  --text-extra: #6e6e6e;
 }
 
 .dark {
@@ -17,7 +21,7 @@
   --select: #0a0a0a;
   --select-hover: #1a1a1a;
   --text: #f6f6f8;
-  --text-extra: #5c5c5e;
+  --text-extra: #2c2c2e;
 }
 
 * {
@@ -76,5 +80,5 @@ code {
 
 @font-face {
   font-family: "Phelix Boomgartner";
-  src: url("./PhelixBoomgartner.otf") format("opentype");
+  src: url("./assets/PhelixBoomgartner.otf") format("opentype");
 }

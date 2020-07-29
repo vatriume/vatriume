@@ -3,12 +3,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
 
+import { useHistory } from "react-router-dom";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SignIn.css";
 
 const SignIn = () => {
   const firebase = useFirebase();
+  const history = useHistory();
   const auth = useSelector((state) => state.firebase.auth);
+  const profile = useSelector((state) => state.firebase.profile);
 
   const signInWithGoogle = () => {
     firebase
@@ -17,14 +21,7 @@ const SignIn = () => {
         type: "popup",
       })
       .then(() => {
-        if (!auth.isEmpty)
-          firebase.updateProfile({
-            schedule: {
-              courses: [],
-              count: 0,
-              sections: [],
-            },
-          });
+        history.push("/profile");
       });
   };
 
@@ -38,12 +35,12 @@ const SignIn = () => {
           if (auth.isLoaded && auth.isEmpty) {
             signInWithGoogle();
           } else {
-            firebase.logout();
+            history.push("/profile");
           }
         }}
       >
         {auth.isEmpty ? (
-          <FontAwesomeIcon icon="plus" />
+          <FontAwesomeIcon color="var(--text)" icon="user" />
         ) : (
           <img src={auth.photoURL} alt="avatar" />
         )}

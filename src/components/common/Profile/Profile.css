@@ -1,0 +1,172 @@
+.Profile {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+
+  padding: 1rem;
+
+  background-image: var(--bgi);
+  color: var(--text);
+}
+
+.Profile .user-info {
+  display: flex;
+  flex-direction: column;
+  flex: 2 0 400px;
+  height: calc(100% - 2rem);
+
+  margin-right: 1rem;
+  padding: 1rem;
+
+  border-radius: 0.5rem;
+  background-color: var(--select);
+}
+
+.user-info img {
+  max-width: 200px;
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  margin: 2rem 0;
+
+  border-radius: 100px;
+}
+
+.user-info h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.user-info span {
+  max-width: 5em;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  margin: 1em 0;
+  padding: 0.3em 0.5em;
+
+  text-align: center;
+  border-radius: 0.4em;
+  border: 1px solid var(--select-hover);
+}
+
+.user-info span.nu-member {
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.user-info span.supporter {
+  color: var(--success);
+  border: 1px solid var(--success);
+}
+
+.user-info span.admin {
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.user-info button {
+  width: 8em;
+  height: 3em;
+
+  margin-top: 2em;
+
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--select);
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5em;
+  color: var(--text);
+}
+
+.user-info button:hover {
+  border: 1px solid var(--error);
+}
+
+.user-info button:active {
+  background-color: var(--error);
+}
+
+.Profile .services {
+  flex: 8 0 400px;
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: scroll;
+}
+
+.services .schedule {
+  flex: content;
+
+  min-height: 200px;
+  padding: 1rem;
+
+  background-color: var(--select);
+  border-radius: 0.5rem;
+}
+
+.services .schedule h2 {
+  margin-bottom: 0.4em;
+}
+
+.services .schedule h4 {
+  margin-bottom: 0.4em;
+}
+
+.services .schedule input[type="email"],
+.services .schedule input[type="password"] {
+  width: 20em;
+  height: 3em;
+
+  padding-left: 1em;
+  margin: 0.5em 0;
+
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--select);
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5em;
+  color: var(--text);
+}
+
+.services .schedule input::placeholder {
+  color: var(--text-extra);
+}
+
+.services .schedule input:focus {
+  outline: none;
+  border: 1px solid var(--accent);
+}
+
+.services .schedule input[type="submit"] {
+  width: 8em;
+  height: 3em;
+
+  margin-top: 0.5em;
+
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--select);
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5em;
+  color: var(--text);
+}
+
+.services .schedule input[type="submit"]:hover {
+  border: 1px solid var(--success);
+}
+
+.services .schedule input[type="submit"]:active {
+  background-color: var(--success);
+}

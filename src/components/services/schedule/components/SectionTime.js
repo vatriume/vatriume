@@ -5,7 +5,7 @@ import { useFirebase } from "react-redux-firebase";
 
 import { ItemTypes } from "../Schedule";
 
-import "./SectionTime.css";
+import "./styles/SectionTime.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SectionTime = ({ course, section, display }) => {

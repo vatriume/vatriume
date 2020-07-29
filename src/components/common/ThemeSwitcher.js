@@ -1,27 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { themeChanged } from "../../store/common/ui";
+
 import "./ThemeSwitcher.css";
 
 const ThemeSwitcher = () => {
-  const useSavedTheme = () => {
-    const [localTheme, setLocalTheme] = useState(
-      localStorage.getItem("theme") !== null
-        ? localStorage.getItem("theme")
-        : "dark"
-    );
+  const dispatch = useDispatch();
 
-    const saveChangedTheme = (changedTheme) => {
-      localStorage.setItem("theme", changedTheme);
-      setLocalTheme(changedTheme);
-    };
-
-    return [localTheme, saveChangedTheme];
-  };
-
-  const [theme, setTheme] = useSavedTheme();
+  const theme = useSelector((state) => state.ui.theme);
   const body = document.getElementsByTagName("body")[0];
-  body.classList.add(theme === "dark" ? "dark" : "light");
+  body.classList.add(theme);
 
   useEffect(() => {
     const body = document.getElementsByTagName("body")[0];
@@ -31,21 +21,21 @@ const ThemeSwitcher = () => {
         theme === "dark" ? "light" : "dark",
         theme === "dark" ? "dark" : "light"
       );
-    else body.classList.add(theme === "dark" ? "dark" : "light");
-
-    localStorage.setItem("theme", theme);
+    else body.classList.add(theme);
   }, [theme]);
 
   return (
     <>
       <button
         className="ThemeSwitcher"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        onClick={() =>
+          dispatch(themeChanged({ theme: theme === "dark" ? "light" : "dark" }))
+        }
       >
         {theme === "dark" ? (
-          <FontAwesomeIcon color="#fff" icon="moon" />
+          <FontAwesomeIcon color="var(--text)" icon="moon" />
         ) : (
-          <FontAwesomeIcon color="#000" icon="sun" />
+          <FontAwesomeIcon color="var(--text)" icon="sun" />
         )}
       </button>
     </>

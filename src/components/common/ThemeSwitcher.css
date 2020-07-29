@@ -1,12 +1,12 @@
 /* Theme change transition */
 * {
-  transition: border 400ms ease-in-out, 400ms ease-in-out,
+  transition: border 200ms ease-in-out, background 200ms ease-in-out,
     color 200ms ease-in-out !important;
-  -webkit-transition: border 400ms ease-in-out, background 400ms ease-in-out,
+  -webkit-transition: border 200ms ease-in-out, background 200ms ease-in-out,
     color 200ms ease-in-out !important;
-  -moz-transition: border 400ms ease-in-out, background 400ms ease-in-out,
+  -moz-transition: border 200ms ease-in-out, background 200ms ease-in-out,
     color 200ms ease-in-out !important;
-  -o-transition: border 400ms ease-in-out, background 400ms ease-in-out,
+  -o-transition: border 200ms ease-in-out, background 200ms ease-in-out,
     color 200ms ease-in-out !important;
 }
 
@@ -17,7 +17,7 @@ button.ThemeSwitcher {
   width: 100%;
   height: 4rem;
 
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   background-color: rgba(0, 0, 0, 0);
   display: inline-block;
   border: none;

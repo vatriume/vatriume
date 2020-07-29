@@ -10,7 +10,7 @@ import { ReactReduxFirebaseProvider } from "react-redux-firebase";
 
 import { createFirestoreInstance } from "redux-firestore";
 
-import { BrowserRouter as Router, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // Firebase app
 import firebase from "./firebase";

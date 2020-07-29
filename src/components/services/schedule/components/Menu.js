@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import "./Menu.css";
+import "./styles/Menu.css";
 
 import Course from "./Course";
 

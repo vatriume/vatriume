@@ -16,7 +16,9 @@
 
 .Sidebar .navbar .navbar-item {
   min-width: 4em;
+  max-width: 4em;
   min-height: 4em;
+  max-height: 4em;
 
   background-color: var(--select);
   border-bottom: 1px solid var(--select-hover);

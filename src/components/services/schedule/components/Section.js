@@ -1,5 +1,5 @@
 import React from "react";
-import "./Section.css";
+import "./styles/Section.css";
 
 import { ItemTypes } from "../Schedule";
 import { useDrag } from "react-dnd";

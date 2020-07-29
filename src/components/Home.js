@@ -11,7 +11,8 @@ const Home = () => {
       </div>
       <code>
         <FontAwesomeIcon icon="code" /> with <FontAwesomeIcon icon="heart" /> by{" "}
-        <span className="k-logo">K</span>
+        <span className="k-logo">K</span> via{" "}
+        <FontAwesomeIcon icon={["fab", "react"]} />
       </code>
     </div>
   );

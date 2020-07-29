@@ -18,6 +18,9 @@
 .Home code {
   position: absolute;
 
+  font-size: 1.3em;
+  color: var(--text-extra);
+
   bottom: 1rem;
   right: 1rem;
 }

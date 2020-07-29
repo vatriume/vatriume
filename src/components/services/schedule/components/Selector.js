@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "./Selector.css";
-import "./Course.css";
+import "./styles/Selector.css";
+import "./styles/Course.css";
 
 const Selector = () => {
   const firebase = useFirebase();

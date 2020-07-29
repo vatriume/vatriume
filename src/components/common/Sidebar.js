@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Sidebar.css";
 import ThemeSwitcher from "./ThemeSwitcher";
@@ -16,11 +17,13 @@ const Sidebar = (props) => {
         </li>
         <li className="navbar-item">
           <NavLink to="/schedule" activeClassName="active">
-            <img className="logo" src={props.logo} alt="Schedule" />
+            <img className="logo" src={props.logo} alt="Home" />
           </NavLink>
         </li>
         <li className="navbar-item sign-in">
-          <SignIn />
+          <NavLink to="/profile" activeClassName="active">
+            <SignIn />
+          </NavLink>
         </li>
         <li className="navbar-item theme">
           <ThemeSwitcher />

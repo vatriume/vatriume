@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import "./Timetable.css";
+import "./styles/Timetable.css";
 
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "../Schedule";

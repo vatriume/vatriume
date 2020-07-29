@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import "./Course.css";
+import "./styles/Course.css";
 
 import Section from "./Section";
 
