@@ -17,10 +17,13 @@ import Info from "./components/Info";
 
 // Schedule Component styles
 import "./Schedule.css";
+import { useFirebase } from "react-redux-firebase";
 
 // Schedule Component
 const Schedule = () => {
   const dispatch = useDispatch();
+  const firebase = useFirebase();
+  const profile = useSelector((state) => state.firebase.profile);
   const userData = useSelector((state) => state.firebase.profile.schedule);
   let chosenCoursesData = [];
   let chosenCoursesECTSData = 0;
@@ -47,6 +50,18 @@ const Schedule = () => {
       })
     );
   }, []);
+
+  useEffect(() => {
+    if (profile.isLoaded && !profile.isEmpty)
+      if (profile.schedule === undefined)
+        firebase.updateProfile({
+          schedule: {
+            count: 0,
+            courses: [],
+            sections: {},
+          },
+        });
+  }, [profile]);
 
   return (
     <div className="Schedule">
