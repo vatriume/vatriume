@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, Redirect, useLocation } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 // Assets and data
 import logo from "../assets/logo.svg";
@@ -40,8 +40,6 @@ library.add(
 );
 
 const App = () => {
-  const location = useLocation();
-
   return (
     <div className="App">
       <Sidebar logo={logo} />
@@ -58,9 +56,7 @@ const App = () => {
         <Route exact path="/home">
           <Redirect to="/" />
         </Route>
-        <Route path="*">
-          <PageNotFound location={location} />
-        </Route>
+        <Route exact path="*" component={PageNotFound} />
       </Switch>
     </div>
   );
