@@ -25,6 +25,9 @@ import throttle from "lodash/throttle";
 // React components
 import App from "./components/App";
 
+// React spinner styles
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+
 // Root styles
 import "./index.css";
 

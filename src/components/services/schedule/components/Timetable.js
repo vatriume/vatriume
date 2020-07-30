@@ -7,7 +7,7 @@ import { ItemTypes } from "../Schedule";
 
 import SectionTime from "./SectionTime";
 
-const Timetable = () => {
+const Timetable = ({ daysNum }) => {
   // Connecting React DnD
   const [{ sectionDragged }] = useDrop({
     accept: ItemTypes.SECTION,
@@ -41,10 +41,16 @@ const Timetable = () => {
     );
   }
 
-  for (const day of dayNames) {
+  for (let i = 0; i < daysNum; i++) {
     days.push(
-      <div key={day} id={day}>
-        <h3>{day}</h3>
+      <div
+        key={dayNames[i]}
+        id={dayNames[i]}
+        style={{
+          flex: "0 0 calc(100% / " + daysNum + ")",
+        }}
+      >
+        <h3>{dayNames[i]}</h3>
       </div>
     );
   }
@@ -60,6 +66,7 @@ const Timetable = () => {
         possibleTimes.push(
           <SectionTime
             display="available"
+            daysNum={daysNum}
             course={coursesData.byId[course].ABBR}
             section={section}
           ></SectionTime>
@@ -75,6 +82,12 @@ const Timetable = () => {
       const n = Object.keys(sections[course]).map((sectionType) => (
         <SectionTime
           display="chosen"
+          key={
+            coursesData.byId[course].INSTANCEID +
+            "-" +
+            sections[course][sectionType].ST
+          }
+          daysNum={daysNum}
           course={coursesData.byId[course].ABBR}
           section={sections[course][sectionType]}
         ></SectionTime>
@@ -87,6 +100,7 @@ const Timetable = () => {
 
   // Returns true if there is a time clash
   const timeClash = (section, chosenSections) => {
+    console.log(chosenSections);
     let result = false;
 
     for (const chosen of chosenSections) {
@@ -114,6 +128,8 @@ const Timetable = () => {
         result = true;
       if (times[1] >= chosenTimes[0] && times[1] <= chosenTimes[1])
         result = true;
+      if (times[0] <= chosenTimes[0] && times[1] >= chosenTimes[1])
+        result = true;
 
       if (result) return true;
     }
@@ -125,7 +141,9 @@ const Timetable = () => {
     <div className="Timetable">
       <div className="timestamps">{timestamps}</div>
       <div className="table">
-        <div className="days">{days}</div>
+        <div className="days" style={{}}>
+          {days}
+        </div>
         <div className="fields">
           {sectionDragged && renderPossible(sectionDragged.sections)}
           {chosenSections && renderChosen(chosenSections)}

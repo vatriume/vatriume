@@ -1,11 +1,14 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import "./styles/Menu.css";
 
 import Course from "./Course";
 
 const Menu = (props) => {
+  const history = useHistory();
+
   const coursesData = useSelector((state) => state.services.schedule.courses);
 
   let courses = [];
@@ -28,7 +31,17 @@ const Menu = (props) => {
     />
   ));
 
-  return <div className="Menu">{courseComponents}</div>;
+  return (
+    <div className="Menu">
+      <button
+        className="btn btn-common"
+        onClick={() => history.push("/schedule/select")}
+      >
+        Reselect
+      </button>
+      {courseComponents}
+    </div>
+  );
 };
 
 export default Menu;

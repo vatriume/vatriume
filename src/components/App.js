@@ -24,6 +24,7 @@ import {
   faHeart,
   faUser,
   faCalendarWeek,
+  faSyncAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
 library.add(
@@ -36,7 +37,8 @@ library.add(
   faHeart,
   faUser,
   faReact,
-  faCalendarWeek
+  faCalendarWeek,
+  faSyncAlt
 );
 
 const App = () => {

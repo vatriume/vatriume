@@ -1,67 +1,64 @@
 .Selector {
   display: flex;
   flex-direction: row;
+
+  width: 100%;
+  height: 100%;
+
+  color: var(--text);
 }
 
 .Selector .chosen {
-  min-width: 16rem;
+  height: 100%;
+  flex-basis: calc(180px + 1rem);
+  overflow-y: scroll;
+}
 
+.Selector .chosen button.btn.btn-confirm {
+  margin-right: 1rem;
+}
+
+.Selector .chosen .chosen-courses {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  max-height: calc(100% - 3rem);
+
+  margin-left: 0.1rem;
+  margin-top: 1rem;
   overflow-y: scroll;
 }
 
 .Selector .search {
-  margin-left: 4rem;
+  flex: 1;
+  padding: 1rem;
+  margin-left: 1rem;
 
-  overflow-y: scroll;
+  background-color: var(--select);
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5em;
 }
 
 .Selector .search input {
-  position: fixed;
-  z-index: 999;
-
-  width: 15rem;
-  height: 3rem;
-  padding-left: 0.3rem;
-  padding-right: 0.3rem;
-
-  color: var(--text);
-  background-color: var(--bgc);
-  font-size: 1.5rem;
-  border: none;
-  border-bottom: 3px solid var(--text);
-  transition: 0.3s ease-in border;
-}
-
-.Selector .search input:focus {
-  outline: none;
-  border-bottom: 3px solid var(--accent);
+  margin-right: 1rem;
 }
 
 .Selector .search .available-courses {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  max-height: calc(100% - 5rem);
 
   margin-left: 0.1rem;
-  margin-top: 4rem;
+  margin-top: 1rem;
+  overflow-y: scroll;
 }
 
 .Selector .Course {
-  color: white !important;
-  position: relative;
-}
-
-.Selector .Course button {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-
-  margin-right: 2px;
-
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0);
-
-  border: none;
-  outline: none;
+  flex: auto;
+  margin-right: 0.8rem;
 }
 
 .Selector .Course button:hover {

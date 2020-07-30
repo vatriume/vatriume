@@ -1,13 +1,15 @@
-.Menu {
+.Menu .courses {
   flex: content;
 
-  min-width: 180px;
+  max-height: calc(100% - 4rem);
   display: flex;
   flex-direction: column;
 
   overflow-y: scroll;
 
   padding: 0;
-  margin: 1rem;
 }
 
+.Menu button.btn.btn-common {
+  margin-bottom: 1rem;
+}

@@ -6,6 +6,7 @@ import { useFirebase } from "react-redux-firebase";
 import "./Profile.css";
 import ScheduleProfileService from "./Schedule";
 import UserInfo from "./UserInfo";
+import Loader from "react-loader-spinner";
 
 const Profile = () => {
   const firebase = useFirebase();
@@ -25,13 +26,25 @@ const Profile = () => {
     }
   }, [profile]);
 
-  return profile.isLoaded ? (
+  return (
     <div className="Profile">
-      <UserInfo />
-      <ScheduleProfileService />
+      {profile.isLoaded ? (
+        <>
+          <UserInfo />
+          <ScheduleProfileService />
+        </>
+      ) : (
+        <div className="loader">
+          <Loader
+            type="Puff"
+            color="var(--accent)"
+            width="4rem"
+            height="4rem"
+            timeout={600000}
+          />
+        </div>
+      )}
     </div>
-  ) : (
-    <div className="loader"></div>
   );
 };
 

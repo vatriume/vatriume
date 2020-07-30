@@ -28,7 +28,12 @@ const ScheduleProfileService = () => {
           />
           <br />
 
-          <input type="submit" name="registrar-submit" id="registrar-submit" />
+          <input
+            className="btn btn-confirm"
+            type="submit"
+            name="registrar-submit"
+            id="registrar-submit"
+          />
         </form>
       </div>
     </div>

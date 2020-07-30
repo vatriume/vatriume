@@ -70,31 +70,12 @@
   border: 1px solid var(--gold);
 }
 
-.user-info button {
-  width: 8em;
-  height: 3em;
-
+.user-info button.btn.btn-error {
   margin-top: 2em;
 
   position: relative;
   left: 50%;
   transform: translate(-50%, 0);
-
-  outline: none;
-  font-size: 1rem;
-  font-weight: 600;
-  background-color: var(--select);
-  border: 1px solid var(--select-hover);
-  border-radius: 0.5em;
-  color: var(--text);
-}
-
-.user-info button:hover {
-  border: 1px solid var(--error);
-}
-
-.user-info button:active {
-  background-color: var(--error);
 }
 
 .Profile .services {
@@ -103,6 +84,11 @@
   flex-direction: column;
 
   overflow-y: scroll;
+}
+
+.Profile .services h1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .services .schedule {
@@ -124,51 +110,6 @@
   margin-bottom: 0.4em;
 }
 
-.services .schedule input[type="email"],
-.services .schedule input[type="password"] {
-  width: 20em;
-  height: 3em;
-
-  padding-left: 1em;
-  margin: 0.5em 0;
-
-  outline: none;
-  font-size: 1rem;
-  font-weight: 600;
-  background-color: var(--select);
-  border: 1px solid var(--select-hover);
-  border-radius: 0.5em;
-  color: var(--text);
-}
-
-.services .schedule input::placeholder {
-  color: var(--text-extra);
-}
-
-.services .schedule input:focus {
-  outline: none;
-  border: 1px solid var(--accent);
-}
-
 .services .schedule input[type="submit"] {
-  width: 8em;
-  height: 3em;
-
   margin-top: 0.5em;
-
-  outline: none;
-  font-size: 1rem;
-  font-weight: 600;
-  background-color: var(--select);
-  border: 1px solid var(--select-hover);
-  border-radius: 0.5em;
-  color: var(--text);
-}
-
-.services .schedule input[type="submit"]:hover {
-  border: 1px solid var(--success);
-}
-
-.services .schedule input[type="submit"]:active {
-  background-color: var(--success);
 }

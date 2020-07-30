@@ -2,6 +2,9 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { Route, Redirect, Switch } from "react-router-dom";
+import Loader from "react-loader-spinner";
+
 // Actions
 import {
   coursesFetched,
@@ -27,10 +30,12 @@ const Schedule = () => {
   const userData = useSelector((state) => state.firebase.profile.schedule);
   let chosenCoursesData = [];
   let chosenCoursesECTSData = 0;
+  let daysNum = 6;
 
   if (userData) {
     chosenCoursesData = userData.courses;
     chosenCoursesECTSData = userData.count;
+    daysNum = userData.daysNum;
   }
 
   useEffect(() => {
@@ -57,6 +62,7 @@ const Schedule = () => {
         firebase.updateProfile({
           schedule: {
             count: 0,
+            daysNum: 6,
             courses: [],
             sections: {},
           },
@@ -65,15 +71,34 @@ const Schedule = () => {
 
   return (
     <div className="Schedule">
-      {chosenCoursesData.length !== 0 ? (
-        <>
-          <Menu chosenCourses={chosenCoursesData} />
-          <Timetable />
-          <Info />
-        </>
-      ) : (
-        <Selector />
-      )}
+      <Switch>
+        <Route exact path="/schedule">
+          {profile.isLoaded && !profile.isEmpty ? (
+            chosenCoursesData.length !== 0 ? (
+              <>
+                <Menu chosenCourses={chosenCoursesData} />
+                <Timetable daysNum={daysNum} />
+                <Info />
+              </>
+            ) : (
+              <Redirect to="/schedule/select" />
+            )
+          ) : (
+            <div className="loader">
+              <Loader
+                type="Puff"
+                color="var(--accent)"
+                width="4rem"
+                height="4rem"
+                timeout={600000}
+              />
+            </div>
+          )}
+        </Route>
+        <Route exact path="/schedule/select">
+          <Selector />
+        </Route>
+      </Switch>
     </div>
   );
 };

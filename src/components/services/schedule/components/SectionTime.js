@@ -8,9 +8,14 @@ import { ItemTypes } from "../Schedule";
 import "./styles/SectionTime.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SectionTime = ({ course, section, display }) => {
+const SectionTime = ({ course, section, display, daysNum }) => {
   // Connecting Firebase user profile
   const firebase = useFirebase();
+
+  // All schedules
+  const schedulesData = useSelector(
+    (state) => state.services.schedule.schedules
+  );
 
   // Connecting React DnD
   const [{ isOver }, drop] = useDrop({
@@ -49,6 +54,14 @@ const SectionTime = ({ course, section, display }) => {
   const d = ["M", "T", "W", "R", "F", "S"];
   const days = section.DAYS.replace(/ /g, "").split("");
 
+  const sectionType = section.ST.replace(/[0-9]/g, "");
+  const instanceid = section.INSTANCEID;
+  const allSections = schedulesData.byId[instanceid].SECTIONS[sectionType];
+
+  const sameTimesSections = allSections.filter(
+    (s) => s.TIMES === section.TIMES && s.DAYS === section.DAYS
+  );
+
   let sectionTime = [];
 
   for (const day of days) {
@@ -57,8 +70,8 @@ const SectionTime = ({ course, section, display }) => {
       position: "absolute",
       top:
         "calc(100% / 12 * " + (section["FORMATTED TIMES"][0] - 540) / 60 + ")",
-      left: "calc(100% / 6 * " + d.indexOf(day) + ")",
-      width: "calc(100% / 6)",
+      left: "calc(100% / " + daysNum + " * " + d.indexOf(day) + ")",
+      width: "calc(100% / " + daysNum + ")",
       height:
         "calc(100% / 12 * " +
         (section["FORMATTED TIMES"][1] - section["FORMATTED TIMES"][0]) / 60 +
@@ -74,37 +87,80 @@ const SectionTime = ({ course, section, display }) => {
       <div key={ID} id={ID} style={style}>
         <h5>{course + " " + section["ST"]}</h5>
         <p>{section["TIMES"]}</p>
-        <button
-          id={ID}
-          onClick={(e) => {
-            e.preventDefault();
+        <p>{section["FACULTY"]}</p>
+        {display === "chosen" ? (
+          <>
+            <button
+              id={ID}
+              className="section-delete"
+              onClick={(e) => {
+                e.preventDefault();
 
-            const sectionType = section.ST.replace(/[0-9]/g, "");
+                const sectionType = section.ST.replace(/[0-9]/g, "");
 
-            const {
-              [sectionType]: old,
-              ...newChosenSections
-            } = userProfile.schedule.sections[section["INSTANCEID"]];
+                const {
+                  [sectionType]: old,
+                  ...newChosenSections
+                } = userProfile.schedule.sections[section["INSTANCEID"]];
 
-            firebase.updateProfile({
-              schedule: {
-                sections: {
-                  [section["INSTANCEID"]]: {},
-                },
-              },
-            });
+                firebase.updateProfile({
+                  schedule: {
+                    sections: {
+                      [section["INSTANCEID"]]: {},
+                    },
+                  },
+                });
 
-            firebase.updateProfile({
-              schedule: {
-                sections: {
-                  [section["INSTANCEID"]]: { ...newChosenSections },
-                },
-              },
-            });
-          }}
-        >
-          <FontAwesomeIcon icon="times" />
-        </button>
+                firebase.updateProfile({
+                  schedule: {
+                    sections: {
+                      [section["INSTANCEID"]]: { ...newChosenSections },
+                    },
+                  },
+                });
+              }}
+            >
+              <FontAwesomeIcon icon="times" />
+            </button>
+            {sameTimesSections.length !== 1 ? (
+              <button
+                id={ID}
+                className="section-rotate"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  let currentlyChosenIndex = -1;
+                  let nextIndex = -1;
+
+                  if (sameTimesSections.length !== 1) {
+                    currentlyChosenIndex = allSections.indexOf(
+                      sameTimesSections.find((s) => s.ST === section.ST)
+                    );
+                    nextIndex =
+                      (currentlyChosenIndex + 1) % sameTimesSections.length;
+                  }
+
+                  if (nextIndex !== -1)
+                    firebase.updateProfile({
+                      schedule: {
+                        sections: {
+                          [instanceid]: {
+                            [sectionType]: sameTimesSections[nextIndex],
+                          },
+                        },
+                      },
+                    });
+                }}
+              >
+                <FontAwesomeIcon icon="sync-alt" />
+              </button>
+            ) : (
+              ""
+            )}
+          </>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

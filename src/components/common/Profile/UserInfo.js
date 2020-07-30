@@ -30,6 +30,7 @@ const UserInfo = () => {
         {role}
       </span>
       <button
+        className="btn btn-error"
         onClick={(e) => {
           e.preventDefault();
 

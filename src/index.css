@@ -82,3 +82,88 @@ code {
   font-family: "Phelix Boomgartner";
   src: url("./assets/PhelixBoomgartner.otf") format("opentype");
 }
+
+button.btn,
+input.btn {
+  width: 8em;
+  height: 3em;
+
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--select);
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5em;
+  color: var(--text);
+}
+
+button.btn-confirm:hover,
+input.btn-confirm:hover {
+  border: 1px solid var(--success);
+}
+
+button.btn-confirm:active,
+input.btn-confirm:active {
+  background-color: var(--success);
+}
+
+button.btn-common:hover,
+input.btn-common:hover {
+  border: 1px solid var(--accent);
+}
+
+button.btn-common:active,
+input.btn-common:active {
+  background-color: var(--accent);
+}
+
+button.btn-error:hover,
+input.btn-error:hover {
+  border: 1px solid var(--error);
+}
+
+button.btn-error:active,
+input.btn-error:active {
+  background-color: var(--error);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 20em;
+  height: 3em;
+
+  padding-left: 1em;
+  margin: 0.5em 0;
+
+  outline: none;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--select);
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5em;
+  color: var(--text);
+}
+
+input::placeholder {
+  color: var(--text-extra);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border: 1px solid var(--accent);
+}
+
+div.loader {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.loader div {
+  align-self: center;
+}
