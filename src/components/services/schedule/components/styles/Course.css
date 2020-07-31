@@ -1,8 +1,8 @@
 .Course {
   position: relative;
   flex: content;
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 14rem;
+  max-width: 14rem;
 
   margin: 0;
   margin-bottom: 1rem;

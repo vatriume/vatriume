@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import "./styles/Timetable.css";
 
@@ -138,7 +138,7 @@ const Timetable = ({ daysNum }) => {
   };
 
   return (
-    <div className="Timetable">
+    <div className="Timetable panel">
       <div className="timestamps">{timestamps}</div>
       <div className="table">
         <div className="days" style={{}}>

@@ -199,7 +199,7 @@ const Selector = () => {
           )}
         </div>
       </div>
-      <div className="search">
+      <div className="panel search">
         <input
           type="text"
           placeholder="Search..."

@@ -10,7 +10,7 @@
 
 .Selector .chosen {
   height: 100%;
-  flex-basis: calc(180px + 1rem);
+  flex-basis: calc(15rem + 1px);
   overflow-y: scroll;
 }
 
@@ -32,12 +32,7 @@
 
 .Selector .search {
   flex: 1;
-  padding: 1rem;
   margin-left: 1rem;
-
-  background-color: var(--select);
-  border: 1px solid var(--select-hover);
-  border-radius: 0.5em;
 }
 
 .Selector .search input {

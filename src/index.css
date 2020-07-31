@@ -85,8 +85,8 @@ code {
 
 button.btn,
 input.btn {
-  width: 8em;
-  height: 3em;
+  width: 7rem;
+  height: 3rem;
 
   outline: none;
   font-size: 1rem;
@@ -166,4 +166,13 @@ div.loader {
 
 div.loader div {
   align-self: center;
+}
+
+div.panel {
+  padding: 1rem;
+
+  border: 1px solid var(--select-hover);
+  border-radius: 0.5rem;
+  background-color: var(--select);
+  color: var(--text);
 }
