@@ -22,11 +22,11 @@ const Menu = (props) => {
   const saveScheduleToRegister = (schedule) => {
     if (profile.isLoaded && !profile.isEmpty) {
       if (schedule) {
-        if (schedule.count <= 24 || schedule.count >= 36) {
+        if (schedule.count < 24 || schedule.count > 36) {
           showAlert(
             <Alert
               deleteAlert={showAlert}
-              message="Currently, this app only register from 24 to 36 ECTS credits"
+              message="Currently, this app can only register from 24 to 36 ECTS credits"
               type="Warning"
             />
           );
