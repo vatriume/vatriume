@@ -145,7 +145,9 @@ const Timetable = ({ daysNum }) => {
           {days}
         </div>
         <div className="fields">
-          {sectionDragged && renderPossible(sectionDragged.sections)}
+          {sectionDragged &&
+            sectionDragged.type === ItemTypes.SECTION &&
+            renderPossible(sectionDragged.sections)}
           {chosenSections && renderChosen(chosenSections)}
         </div>
       </div>
