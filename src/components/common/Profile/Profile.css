@@ -70,12 +70,20 @@
   border: 1px solid var(--gold);
 }
 
-.user-info button.btn.btn-error {
-  margin-top: 2em;
+.user-info .actions {
+  display: flex;
+  flex-direction: row;
 
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
+  margin-top: auto;
+}
+
+.user-info button.btn.btn-confirm,
+.user-info button.btn.btn-error {
+  flex-grow: 1;
+}
+
+.user-info button.btn.btn-confirm {
+  margin-right: 1rem;
 }
 
 .Profile .services {
