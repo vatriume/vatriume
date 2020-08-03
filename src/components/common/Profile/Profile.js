@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import { useFirebase } from "react-redux-firebase";
+import { useHistory } from "react-router-dom";
 
 import "./Profile.css";
 import ScheduleProfileService from "./Schedule";
@@ -10,7 +11,19 @@ import Loader from "react-loader-spinner";
 
 const Profile = () => {
   const firebase = useFirebase();
+  const history = useHistory();
   const profile = useSelector((state) => state.firebase.profile);
+
+  const signInWithGoogle = () => {
+    firebase
+      .login({
+        provider: "google",
+        type: "popup",
+      })
+      .then(() => {
+        history.push("/profile");
+      });
+  };
 
   useEffect(() => {
     if (profile.isLoaded && !profile.isEmpty) {
@@ -29,10 +42,14 @@ const Profile = () => {
   return (
     <div className="Profile">
       {profile.isLoaded ? (
-        <>
-          <UserInfo />
-          <ScheduleProfileService />
-        </>
+        !profile.isEmpty ? (
+          <>
+            <UserInfo />
+            <ScheduleProfileService />
+          </>
+        ) : (
+          signInWithGoogle()
+        )
       ) : (
         <div className="loader">
           <Loader

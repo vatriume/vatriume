@@ -60,7 +60,7 @@ const ScheduleProfileService = () => {
       <h1>Services:</h1>
       <div className="schedule">
         <h2>Schedule</h2>
-        <h4>Registrar credentials</h4>
+        <h3>Registrar credentials</h3>
         <form onSubmit={validateRegistrarCredentials}>
           <label htmlFor="registrar-name">Username:</label>
           <br />

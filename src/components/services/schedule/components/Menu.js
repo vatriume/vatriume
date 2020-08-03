@@ -13,12 +13,10 @@ const Menu = (props) => {
   const history = useHistory();
 
   const profile = useSelector((state) => state.firebase.profile);
-  const chosenSchedule = useSelector(
-    (state) => state.firebase.profile.schedule
-  );
 
   const [alert, showAlert] = useState(null);
 
+  /*
   const saveScheduleToRegister = (schedule) => {
     if (profile.isLoaded && !profile.isEmpty) {
       if (schedule) {
@@ -56,6 +54,7 @@ const Menu = (props) => {
       }
     }
   };
+  */
 
   const coursesData = useSelector((state) => state.services.schedule.courses);
   let courses = [];
@@ -86,12 +85,16 @@ const Menu = (props) => {
       >
         Reselect
       </button>
+
+      {/*
       <button
         className="btn btn-confirm"
         onClick={() => saveScheduleToRegister(chosenSchedule)}
       >
         Register
       </button>
+      */}
+
       <div className="courses">{courseComponents}</div>
       {alert}
     </div>

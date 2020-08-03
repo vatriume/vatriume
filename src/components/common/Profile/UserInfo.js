@@ -107,7 +107,7 @@ const UserInfo = () => {
         {role}
       </span>
       <div className="actions">
-        {role !== "Supporter" ? (
+        {/* role !== "Supporter" ? (
           <button
             className="btn btn-confirm"
             onClick={(e) => {
@@ -120,7 +120,7 @@ const UserInfo = () => {
           </button>
         ) : (
           ""
-        )}
+        ) */}
         <button
           className="btn btn-error"
           onClick={(e) => {

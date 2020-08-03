@@ -73,15 +73,19 @@ const Schedule = () => {
     <div className="Schedule">
       <Switch>
         <Route exact path="/schedule">
-          {profile.isLoaded && !profile.isEmpty ? (
-            chosenCoursesData.length !== 0 ? (
-              <>
-                <Menu chosenCourses={chosenCoursesData} />
-                <Timetable daysNum={daysNum} />
-                <Info />
-              </>
+          {profile.isLoaded ? (
+            !profile.isEmpty ? (
+              chosenCoursesData.length !== 0 ? (
+                <>
+                  <Menu chosenCourses={chosenCoursesData} />
+                  <Timetable daysNum={daysNum} />
+                  <Info />
+                </>
+              ) : (
+                <Redirect to="/schedule/select" />
+              )
             ) : (
-              <Redirect to="/schedule/select" />
+              <Redirect to="/profile" />
             )
           ) : (
             <div className="loader">

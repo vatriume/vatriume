@@ -22,7 +22,12 @@
 
   background-color: var(--select);
   border-bottom: 1px solid var(--select-hover);
-  transition: background-color 0.25s;
+  transition: background-color 0.25s linear;
+
+  transition: none !important;
+  -mox-transition: none !important;
+  -webkit-transition: none !important;
+  -o-transition: none !important;
 }
 
 .Sidebar .navbar .navbar-item:hover {
@@ -37,8 +42,6 @@
 .Sidebar .navbar .navbar-item.theme {
   position: absolute;
   bottom: 0;
-
-  border-top: 1px solid var(--select-hover);
 }
 
 .Sidebar .navbar .navbar-item.sign-in {
@@ -50,17 +53,26 @@
 
 .Sidebar .navbar .navbar-item a {
   display: block;
+  max-width: 4rem;
+  max-height: 4rem;
 
   padding: 0;
-  line-height: 4em;
+  line-height: 4rem;
 
+  font-size: 1.3rem;
   text-align: center;
   text-decoration: none;
   color: var(--text);
+
+  transition: none !important;
+  -mox-transition: none !important;
+  -webkit-transition: none !important;
+  -o-transition: none !important;
 }
 
 .Sidebar .navbar .navbar-item a.active {
   background-color: var(--accent);
+  color: #fff !important;
   transition: background 200ms ease-in-out !important;
 }
 

@@ -1,13 +1,13 @@
 /* Theme change transition */
 * {
   transition: border 200ms ease-in-out, background 200ms ease-in-out,
-    color 200ms ease-in-out !important;
+    color 200ms ease-in-out;
   -webkit-transition: border 200ms ease-in-out, background 200ms ease-in-out,
-    color 200ms ease-in-out !important;
+    color 200ms ease-in-out;
   -moz-transition: border 200ms ease-in-out, background 200ms ease-in-out,
-    color 200ms ease-in-out !important;
+    color 200ms ease-in-out;
   -o-transition: border 200ms ease-in-out, background 200ms ease-in-out,
-    color 200ms ease-in-out !important;
+    color 200ms ease-in-out;
 }
 
 button.ThemeSwitcher {

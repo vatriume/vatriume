@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./Home.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home = () => {
   return (
@@ -9,11 +8,6 @@ const Home = () => {
       <div className="splash">
         <h1>VΛtriume</h1>
       </div>
-      <code>
-        <FontAwesomeIcon icon="code" /> with <FontAwesomeIcon icon="heart" /> by{" "}
-        <span className="k-logo">K</span> via{" "}
-        <FontAwesomeIcon icon={["fab", "react"]} />
-      </code>
     </div>
   );
 };

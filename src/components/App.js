@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 // Assets and data
-import logo from "../assets/logo.svg";
 import "./App.css";
 
 // Components
@@ -26,6 +25,7 @@ import {
   faCalendarWeek,
   faSyncAlt,
   faCheck,
+  faHome,
 } from "@fortawesome/free-solid-svg-icons";
 import { faReact } from "@fortawesome/free-brands-svg-icons";
 library.add(
@@ -40,13 +40,14 @@ library.add(
   faReact,
   faCalendarWeek,
   faSyncAlt,
-  faCheck
+  faCheck,
+  faHome
 );
 
 const App = () => {
   return (
     <div className="App">
-      <Sidebar logo={logo} />
+      <Sidebar />
       <Switch>
         <Route path="/profile">
           <Profile />

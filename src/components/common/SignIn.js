@@ -12,7 +12,6 @@ const SignIn = () => {
   const firebase = useFirebase();
   const history = useHistory();
   const auth = useSelector((state) => state.firebase.auth);
-  const profile = useSelector((state) => state.firebase.profile);
 
   const signInWithGoogle = () => {
     firebase
