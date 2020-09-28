@@ -1,2 +1,3 @@
-# nuschedule
-Timetable organizing software with a course register feature 
+# Vatriume
+
+WEB Portal for Nazarbayev University students with useful services and resources
