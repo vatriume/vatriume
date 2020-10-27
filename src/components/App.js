@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-// Assets and data
+// Styles
 import "./App.css";
 
 // Components

@@ -4,7 +4,6 @@ import "firebase/firestore";
 import "firebase/auth";
 import "firebase/analytics";
 
-// Initializing the app with config so that the app could access data
 const firebaseConfig = {
   apiKey: "AIzaSyBkiiqYOy7eJ0VTXwrtvd8Dmql2B8pUcM4",
   authDomain: "vatriume-5776b.firebaseapp.com",
