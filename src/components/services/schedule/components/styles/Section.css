@@ -1,22 +1,21 @@
 .Section {
-  flex: content;
-  max-width: 90%;
+    flex: content;
+    max-width: 90%;
 
-  margin: 0;
-  margin-bottom: 1rem;
-  margin-left: calc(5%);
-  margin-right: calc(5%);
-  padding: 0.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    margin-left: calc(5%);
+    margin-right: calc(5%);
+    padding: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 
-  border-radius: 0.5rem;
-  background-color: var(--accent);
-  color: #fff !important;
+    border-radius: 0.5rem;
+    background-color: var(--accent);
+    color: #fff !important;
 }
 
 .Section h5,
 .Section button {
-  color: #fff !important;
+    color: #fff !important;
 }
-

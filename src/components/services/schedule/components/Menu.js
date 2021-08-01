@@ -9,14 +9,14 @@ import Course from "./Course";
 import Alert from "../../../common/Alert";
 
 const Menu = (props) => {
-  const firebase = useFirebase();
-  const history = useHistory();
+    const firebase = useFirebase();
+    const history = useHistory();
 
-  const profile = useSelector((state) => state.firebase.profile);
+    const profile = useSelector((state) => state.firebase.profile);
 
-  const [alert, showAlert] = useState(null);
+    const [alert, showAlert] = useState(null);
 
-  /*
+    /*
   const saveScheduleToRegister = (schedule) => {
     if (profile.isLoaded && !profile.isEmpty) {
       if (schedule) {
@@ -56,37 +56,37 @@ const Menu = (props) => {
   };
   */
 
-  const coursesData = useSelector((state) => state.services.schedule.courses);
-  let courses = [];
-  props.chosenCourses.forEach((INSTANCEID) => {
-    courses.push(coursesData.byId[INSTANCEID]);
-  });
+    const coursesData = useSelector((state) => state.services.schedule.courses);
+    let courses = [];
+    props.chosenCourses.forEach((INSTANCEID) => {
+        courses.push(coursesData.byId[INSTANCEID]);
+    });
 
-  const courseComponents = courses.map((course) => (
-    <Course
-      key={course.INSTANCEID}
-      id={course.COURSEID}
-      instance={course.INSTANCEID}
-      abbr={course.ABBR}
-      title={course.TITLE}
-      credits={course.CRECTS}
-      school={course.SCHOOL}
-      prereq={course.PREREQ}
-      coreq={course.COREQ}
-      antireq={course.ANTIREQ}
-    />
-  ));
+    const courseComponents = courses.map((course) => (
+        <Course
+            key={course.INSTANCEID}
+            id={course.COURSEID}
+            instance={course.INSTANCEID}
+            abbr={course.ABBR}
+            title={course.TITLE}
+            credits={course.CRECTS}
+            school={course.SCHOOL}
+            prereq={course.PREREQ}
+            coreq={course.COREQ}
+            antireq={course.ANTIREQ}
+        />
+    ));
 
-  return (
-    <div className="Menu">
-      <button
-        className="btn btn-common"
-        onClick={() => history.push("/schedule/select")}
-      >
-        Reselect
-      </button>
+    return (
+        <div className="Menu">
+            <button
+                className="btn btn-common"
+                onClick={() => history.push("/schedule/select")}
+            >
+                Reselect
+            </button>
 
-      {/*
+            {/*
       <button
         className="btn btn-confirm"
         onClick={() => saveScheduleToRegister(chosenSchedule)}
@@ -95,10 +95,10 @@ const Menu = (props) => {
       </button>
       */}
 
-      <div className="courses">{courseComponents}</div>
-      {alert}
-    </div>
-  );
+            <div className="courses">{courseComponents}</div>
+            {alert}
+        </div>
+    );
 };
 
 export default Menu;

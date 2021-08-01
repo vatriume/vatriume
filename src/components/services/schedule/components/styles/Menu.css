@@ -1,16 +1,16 @@
 .Menu .courses {
-  flex: content;
+    flex: content;
 
-  max-height: calc(100% - 4rem);
-  display: flex;
-  flex-direction: column;
+    max-height: calc(100% - 4rem);
+    display: flex;
+    flex-direction: column;
 
-  overflow-y: scroll;
+    overflow-y: scroll;
 
-  padding: 0;
+    padding: 0;
 }
 
 .Menu button.btn.btn-common {
-  margin-bottom: 1rem;
-  margin-right: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
 }

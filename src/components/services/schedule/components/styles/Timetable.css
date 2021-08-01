@@ -1,60 +1,60 @@
 .Timetable {
-  flex: auto;
-  display: flex;
-  flex-direction: row;
+    flex: auto;
+    display: flex;
+    flex-direction: row;
 
-  width: auto;
-  height: auto;
-  padding-left: 2rem;
-  margin-left: 1rem;
+    width: auto;
+    height: auto;
+    padding-left: 2rem;
+    margin-left: 1rem;
 }
 
 .Timetable .table {
-  flex: auto;
-  height: 100%;
-  width: 100%;
+    flex: auto;
+    height: 100%;
+    width: 100%;
 }
 
 .Timetable .days {
-  flex: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
 
-  min-height: 3rem;
+    min-height: 3rem;
 }
 
 .Timetable .timestamps {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 
-  min-height: calc(100% - 3rem);
-  margin-top: 3rem;
+    min-height: calc(100% - 3rem);
+    margin-top: 3rem;
 }
 
 .Timetable .timestamps div {
-  flex: auto;
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
+    flex: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
 
-  text-align: right;
+    text-align: right;
 }
 
 .Timetable .days div {
-  text-align: center;
+    text-align: center;
 }
 
 .Timetable .fields {
-  position: relative;
+    position: relative;
 
-  min-height: calc(100% - 3rem);
-  min-width: auto;
+    min-height: calc(100% - 3rem);
+    min-width: auto;
 
-  margin-left: 0.8em;
+    margin-left: 0.8em;
 
-  border-radius: 0.5rem;
-  border: 1px solid var(--select-hover);
-  color: #fff !important;
+    border-radius: 0.5rem;
+    border: 1px solid var(--select-hover);
+    color: #fff !important;
 }

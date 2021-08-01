@@ -7,8 +7,8 @@ import servicesReducer from "./services/";
 import uiReducer from "./common/ui";
 
 export default combineReducers({
-  services: servicesReducer,
-  ui: uiReducer,
-  firebase: firebaseReducer,
-  firestore: firestoreReducer,
+    services: servicesReducer,
+    ui: uiReducer,
+    firebase: firebaseReducer,
+    firestore: firestoreReducer,
 });

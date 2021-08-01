@@ -1,27 +1,26 @@
 button.SignIn {
-  display: block;
+    display: block;
 
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 
-  width: 100%;
-  height: 4rem;
+    width: 100%;
+    height: 4rem;
 
-  font-size: 1.3rem;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-  outline: none;
+    font-size: 1.3rem;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
 }
 
 button.SignIn img {
-  margin-top: 0.3rem;
-  width: 2rem;
+    margin-top: 0.3rem;
+    width: 2rem;
 
-  border-radius: 1rem;
+    border-radius: 1rem;
 }
 
 button.SignIn:active {
-  outline: none;
-  border: none;
+    outline: none;
+    border: none;
 }
-

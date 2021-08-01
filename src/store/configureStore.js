@@ -7,7 +7,7 @@ import database from "./middleware/database";
 import { loadState } from "./localStorage";
 
 export default configureStore({
-  preloadedState: loadState(),
-  reducer: rootReducer,
-  middleware: [database],
+    preloadedState: loadState(),
+    reducer: rootReducer,
+    middleware: [database],
 });

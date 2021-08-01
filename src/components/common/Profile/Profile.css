@@ -1,124 +1,124 @@
 .Profile {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-  width: 100%;
+    width: 100%;
 
-  padding: 1rem;
+    padding: 1rem;
 
-  background-image: var(--bgi);
-  color: var(--text);
+    background-image: var(--bgi);
+    color: var(--text);
 }
 
 .Profile .user-info {
-  display: flex;
-  flex-direction: column;
-  flex: 2 0 400px;
-  height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: column;
+    flex: 2 0 400px;
+    height: calc(100% - 2rem);
 
-  margin-right: 1rem;
-  padding: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
 
-  border: 1px solid var(--select-hover);
-  border-radius: 0.5rem;
-  background-color: var(--select);
+    border: 1px solid var(--select-hover);
+    border-radius: 0.5rem;
+    background-color: var(--select);
 }
 
 .user-info img {
-  max-width: 200px;
+    max-width: 200px;
 
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 
-  margin: 2rem 0;
+    margin: 2rem 0;
 
-  border-radius: 100px;
+    border-radius: 100px;
 }
 
 .user-info h1 {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .user-info span {
-  max-width: 5em;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, 0);
+    max-width: 5em;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
 
-  margin: 1em 0;
-  padding: 0.3em 0.5em;
+    margin: 1em 0;
+    padding: 0.3em 0.5em;
 
-  text-align: center;
-  border-radius: 0.4em;
-  border: 1px solid var(--select-hover);
+    text-align: center;
+    border-radius: 0.4em;
+    border: 1px solid var(--select-hover);
 }
 
 .user-info span.nu-member {
-  color: var(--accent);
-  border: 1px solid var(--accent);
+    color: var(--accent);
+    border: 1px solid var(--accent);
 }
 
 .user-info span.supporter {
-  color: var(--success);
-  border: 1px solid var(--success);
+    color: var(--success);
+    border: 1px solid var(--success);
 }
 
 .user-info span.admin {
-  color: var(--gold);
-  border: 1px solid var(--gold);
+    color: var(--gold);
+    border: 1px solid var(--gold);
 }
 
 .user-info .actions {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 
-  margin-top: auto;
+    margin-top: auto;
 }
 
 .user-info button.btn.btn-confirm,
 .user-info button.btn.btn-error {
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 .user-info button.btn.btn-confirm {
-  margin-right: 1rem;
+    margin-right: 1rem;
 }
 
 .Profile .services {
-  flex: 8 0 400px;
-  display: flex;
-  flex-direction: column;
+    flex: 8 0 400px;
+    display: flex;
+    flex-direction: column;
 
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .Profile .services h1 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .services .schedule {
-  flex: content;
+    flex: content;
 
-  min-height: 200px;
-  padding: 1rem;
+    min-height: 200px;
+    padding: 1rem;
 
-  border: 1px solid var(--select-hover);
-  background-color: var(--select);
-  border-radius: 0.5rem;
+    border: 1px solid var(--select-hover);
+    background-color: var(--select);
+    border-radius: 0.5rem;
 }
 
 .services .schedule h2 {
-  margin-bottom: 0.4em;
+    margin-bottom: 0.4em;
 }
 
 .services .schedule h4 {
-  margin-bottom: 0.4em;
+    margin-bottom: 0.4em;
 }
 
 .services .schedule input[type="submit"] {
-  margin-top: 0.5em;
-  margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }

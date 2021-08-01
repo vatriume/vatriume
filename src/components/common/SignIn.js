@@ -9,43 +9,43 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SignIn.css";
 
 const SignIn = () => {
-  const firebase = useFirebase();
-  const history = useHistory();
-  const auth = useSelector((state) => state.firebase.auth);
+    const firebase = useFirebase();
+    const history = useHistory();
+    const auth = useSelector((state) => state.firebase.auth);
 
-  const signInWithGoogle = () => {
-    firebase
-      .login({
-        provider: "google",
-        type: "popup",
-      })
-      .then(() => {
-        history.push("/profile");
-      });
-  };
+    const signInWithGoogle = () => {
+        firebase
+            .login({
+                provider: "google",
+                type: "popup",
+            })
+            .then(() => {
+                history.push("/profile");
+            });
+    };
 
-  return (
-    <>
-      <button
-        className="SignIn"
-        onClick={(e) => {
-          e.preventDefault();
+    return (
+        <>
+            <button
+                className="SignIn"
+                onClick={(e) => {
+                    e.preventDefault();
 
-          if (auth.isLoaded && auth.isEmpty) {
-            signInWithGoogle();
-          } else {
-            history.push("/profile");
-          }
-        }}
-      >
-        {auth.isEmpty ? (
-          <FontAwesomeIcon color="var(--text)" icon="user" />
-        ) : (
-          <img src={auth.photoURL} alt="avatar" />
-        )}
-      </button>
-    </>
-  );
+                    if (auth.isLoaded && auth.isEmpty) {
+                        signInWithGoogle();
+                    } else {
+                        history.push("/profile");
+                    }
+                }}
+            >
+                {auth.isEmpty ? (
+                    <FontAwesomeIcon color="var(--text)" icon="user" />
+                ) : (
+                    <img src={auth.photoURL} alt="avatar" />
+                )}
+            </button>
+        </>
+    );
 };
 
 export default SignIn;

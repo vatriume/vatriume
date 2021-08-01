@@ -33,33 +33,33 @@ import "./index.css";
 
 // Storing the local state to localStorage
 store.subscribe(
-  throttle(() => {
-    saveState(store.getState());
-  }, 1000)
+    throttle(() => {
+        saveState(store.getState());
+    }, 1000)
 );
 
 // Binding Firebase to React and Redux
 const rrfConfig = {
-  userProfile: "users",
-  useFirestoreForProfile: true,
+    userProfile: "users",
+    useFirestoreForProfile: true,
 };
 
 const rrfProps = {
-  firebase,
-  config: rrfConfig,
-  dispatch: store.dispatch,
-  createFirestoreInstance,
+    firebase,
+    config: rrfConfig,
+    dispatch: store.dispatch,
+    createFirestoreInstance,
 };
 
 ReactDOM.render(
-  <DndProvider backend={HTML5Backend}>
-    <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </ReactReduxFirebaseProvider>
-    </Provider>
-  </DndProvider>,
-  document.getElementById("root")
+    <DndProvider backend={HTML5Backend}>
+        <Provider store={store}>
+            <ReactReduxFirebaseProvider {...rrfProps}>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </ReactReduxFirebaseProvider>
+        </Provider>
+    </DndProvider>,
+    document.getElementById("root")
 );

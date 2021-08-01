@@ -1,32 +1,32 @@
 .Home {
-  width: 100%;
-  background: var(--bgi);
+    width: 100%;
+    background: var(--bgi);
 
-  padding: 1rem;
-  color: var(--text);
+    padding: 1rem;
+    color: var(--text);
 }
 
 .Home .splash h1 {
-  position: absolute;
+    position: absolute;
 
-  top: 50%;
-  transform: translate(0, calc(-50% - 1rem));
+    top: 50%;
+    transform: translate(0, calc(-50% - 1rem));
 
-  font-size: 6rem;
+    font-size: 6rem;
 }
 
 .Home code {
-  position: absolute;
+    position: absolute;
 
-  color: var(--text-extra);
+    color: var(--text-extra);
 
-  bottom: 1rem;
-  right: 1rem;
+    bottom: 1rem;
+    right: 1rem;
 }
 
 .Home .k-logo {
-  z-index: 99;
+    z-index: 99;
 
-  font-family: "Phelix Boomgartner";
-  font-size: 1.5em;
+    font-family: "Phelix Boomgartner";
+    font-size: 1.5em;
 }

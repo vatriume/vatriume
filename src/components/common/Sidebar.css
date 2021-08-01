@@ -1,86 +1,86 @@
 .Sidebar {
-  margin: 0;
-  padding: 0;
-  width: 4em;
-  height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 4em;
+    height: 100%;
 
-  background-color: var(--select);
-  border-right: 1px solid var(--select-hover);
+    background-color: var(--select);
+    border-right: 1px solid var(--select-hover);
 }
 
 .Sidebar .navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .Sidebar .navbar .navbar-item {
-  min-width: 4em;
-  max-width: 4em;
-  min-height: 4em;
-  max-height: 4em;
+    min-width: 4em;
+    max-width: 4em;
+    min-height: 4em;
+    max-height: 4em;
 
-  background-color: var(--select);
-  border-bottom: 1px solid var(--select-hover);
-  transition: background-color 0.25s linear;
+    background-color: var(--select);
+    border-bottom: 1px solid var(--select-hover);
+    transition: background-color 0.25s linear;
 
-  transition: none !important;
-  -mox-transition: none !important;
-  -webkit-transition: none !important;
-  -o-transition: none !important;
+    transition: none !important;
+    -mox-transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
 }
 
 .Sidebar .navbar .navbar-item:hover {
-  background-color: var(--select-hover);
-  transition: background 200ms ease-in-out !important;
+    background-color: var(--select-hover);
+    transition: background 200ms ease-in-out !important;
 }
 
 .Sidebar .navbar .navbar-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .Sidebar .navbar .navbar-item.theme {
-  position: absolute;
-  bottom: 0;
+    position: absolute;
+    bottom: 0;
 }
 
 .Sidebar .navbar .navbar-item.sign-in {
-  position: absolute;
-  bottom: 4rem;
+    position: absolute;
+    bottom: 4rem;
 
-  border-top: 1px solid var(--select-hover);
+    border-top: 1px solid var(--select-hover);
 }
 
 .Sidebar .navbar .navbar-item a {
-  display: block;
-  max-width: 4rem;
-  max-height: 4rem;
+    display: block;
+    max-width: 4rem;
+    max-height: 4rem;
 
-  padding: 0;
-  line-height: 4rem;
+    padding: 0;
+    line-height: 4rem;
 
-  font-size: 1.3rem;
-  text-align: center;
-  text-decoration: none;
-  color: var(--text);
+    font-size: 1.3rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text);
 
-  transition: none !important;
-  -mox-transition: none !important;
-  -webkit-transition: none !important;
-  -o-transition: none !important;
+    transition: none !important;
+    -mox-transition: none !important;
+    -webkit-transition: none !important;
+    -o-transition: none !important;
 }
 
 .Sidebar .navbar .navbar-item a.active {
-  background-color: var(--accent);
-  color: #fff !important;
-  transition: background 200ms ease-in-out !important;
+    background-color: var(--accent);
+    color: #fff !important;
+    transition: background 200ms ease-in-out !important;
 }
 
 .Sidebar .navbar .navbar-item .logo {
-  display: block;
+    display: block;
 
-  min-width: 4em;
-  max-width: 4em;
-  min-height: 4em;
-  max-height: 4em;
+    min-width: 4em;
+    max-width: 4em;
+    min-height: 4em;
+    max-height: 4em;
 }

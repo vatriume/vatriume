@@ -1,56 +1,56 @@
 .Timetable .fields .section-display div {
-  position: absolute;
+    position: absolute;
 
-  border-radius: 0.5rem;
+    border-radius: 0.5rem;
 
-  overflow-y: scroll;
+    overflow-y: scroll;
 }
 
 .Timetable .table .fields .section-display div p,
 .Timetable .table .fields .section-display div h5 {
-  padding-left: 0.5em;
+    padding-left: 0.5em;
 }
 
 .Timetable .table .fields .section-display div p {
-  padding-top: 0.1em;
+    padding-top: 0.1em;
 }
 
 .Timetable .table .fields .section-display div button.section-delete {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
 
-  margin-right: 2px;
+    margin-right: 2px;
 
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0);
-  color: #fff !important;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff !important;
 
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 
 .Timetable .table .fields .section-display div button.section-rotate {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
 
-  margin-right: 2px;
+    margin-right: 2px;
 
-  font-size: 1rem;
-  background-color: rgba(0, 0, 0, 0);
-  color: #fff !important;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff !important;
 
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 
 .Timetable .table .fields .section-display div button:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .Timetable .table .fields .section-display div button:active {
-  cursor: pointer;
-  outline: none;
-  border: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
 }
