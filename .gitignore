@@ -2,7 +2,7 @@
 node_modules/
 
 # build files
-public/
+build/
 
 # Firebase cache
 .firebase/
