@@ -7,6 +7,7 @@ import { ItemTypes } from "../Schedule";
 
 import "./styles/SectionTime.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { current } from "@reduxjs/toolkit";
 
 const SectionTime = ({ course, section, display, daysNum }) => {
     // Connecting Firebase user profile
@@ -146,7 +147,7 @@ const SectionTime = ({ course, section, display, daysNum }) => {
 
                                     if (sameTimesSections.length !== 1) {
                                         currentlyChosenIndex =
-                                            allSections.indexOf(
+                                            sameTimesSections.indexOf(
                                                 sameTimesSections.find(
                                                     (s) => s.ST === section.ST
                                                 )

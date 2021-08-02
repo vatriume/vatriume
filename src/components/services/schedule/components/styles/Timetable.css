@@ -1,43 +1,50 @@
 .Timetable {
-    flex: auto;
-    display: flex;
-    flex-direction: row;
-
-    width: auto;
+    width: 100%;
     height: auto;
     padding-left: 2rem;
     margin-left: 1rem;
 }
 
 .Timetable .table {
+    display: flex;
     flex: auto;
+    flex-direction: row;
     height: 100%;
     width: 100%;
+
+    overflow-y: scroll;
+}
+
+.Timetable .timestamps {
+    display: flex;
+    flex: 10%;
+    flex-direction: column;
+
+    min-height: calc(100% - 3rem);
+    max-width: 3rem;
+    margin-top: 5rem;
+}
+
+.Timetable .right {
+    display: flex;
+    flex: 90%;
+    flex-direction: column;
+
+    min-height: calc(100% - 3rem);
 }
 
 .Timetable .days {
     flex: auto;
     display: flex;
     flex-direction: row;
-    align-items: stretch;
 
-    min-height: 3rem;
-}
-
-.Timetable .timestamps {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-
-    min-height: calc(100% - 3rem);
-    margin-top: 3rem;
+    min-height: 5rem;
 }
 
 .Timetable .timestamps div {
-    flex: auto;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
+    display: flex;
+    min-height: 6rem;
+    max-width: 5rem;
 
     text-align: right;
 }
@@ -49,7 +56,7 @@
 .Timetable .fields {
     position: relative;
 
-    min-height: calc(100% - 3rem);
+    min-height: calc(12 * 6rem);
     min-width: auto;
 
     margin-left: 0.8em;

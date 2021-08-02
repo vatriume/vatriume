@@ -100,7 +100,6 @@ const Timetable = ({ daysNum }) => {
 
     // Returns true if there is a time clash
     const timeClash = (section, chosenSections) => {
-        console.log(chosenSections);
         let result = false;
 
         for (const chosen of chosenSections) {
@@ -139,16 +138,18 @@ const Timetable = ({ daysNum }) => {
 
     return (
         <div className="Timetable panel">
-            <div className="timestamps">{timestamps}</div>
             <div className="table">
-                <div className="days" style={{}}>
-                    {days}
-                </div>
-                <div className="fields">
-                    {sectionDragged &&
-                        sectionDragged.type === ItemTypes.SECTION &&
-                        renderPossible(sectionDragged.sections)}
-                    {chosenSections && renderChosen(chosenSections)}
+                <div className="timestamps">{timestamps}</div>
+                <div className="right">
+                    <div className="days" style={{}}>
+                        {days}
+                    </div>
+                    <div className="fields">
+                        {sectionDragged &&
+                            sectionDragged.type === ItemTypes.SECTION &&
+                            renderPossible(sectionDragged.sections)}
+                        {chosenSections && renderChosen(chosenSections)}
+                    </div>
                 </div>
             </div>
         </div>

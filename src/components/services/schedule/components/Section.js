@@ -1,8 +1,10 @@
 import React from "react";
+import { useDrag } from "react-dnd";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styles/Section.css";
 
 import { ItemTypes } from "../Schedule";
-import { useDrag } from "react-dnd";
 
 const Section = (props) => {
     const [{ isDragging }, drag] = useDrag({
